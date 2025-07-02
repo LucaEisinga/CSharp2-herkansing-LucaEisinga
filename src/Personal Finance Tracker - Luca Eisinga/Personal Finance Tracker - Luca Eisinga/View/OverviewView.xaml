@@ -1,0 +1,193 @@
+﻿<UserControl x:Class="Personal_Finance_Tracker___Luca_Eisinga.View.OverviewView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Personal_Finance_Tracker___Luca_Eisinga.View"
+        xmlns:wpf="clr-namespace:LiveChartsCore.SkiaSharpView.WPF;assembly=LiveChartsCore.SkiaSharpView.WPF"
+        mc:Ignorable="d"
+        d:DataContext="{d:DesignInstance vm:OverviewViewModel}"
+        d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <DropShadowEffect x:Key="DropShadow" 
+                      ShadowDepth="3" 
+                      Color="Black" 
+                      Opacity="0.2" 
+                      BlurRadius="10"/>
+
+        <Style x:Key="RoundedButton" TargetType="Button">
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Padding" Value="10,5" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Color="#FF6BD6FF" Offset="0.0" />
+                        <GradientStop Color="#FF1D92D1" Offset="1.0" />
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                            CornerRadius="10"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="1">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                          VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.7*" />
+            <!-- Left side: 70% -->
+            <ColumnDefinition Width="0.3*" />
+            <!-- Right side: 30% -->
+        </Grid.ColumnDefinitions>
+
+        <!-- LEFT COLUMN -->
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <!-- Top: Title and hamburger menu -->
+                <RowDefinition Height="0.1*" />
+                <!-- Top: summary boxes -->
+                <RowDefinition Height="0.4*" />
+                <!-- Bottom: bar chart -->
+                <RowDefinition Height="0.5*" />
+            </Grid.RowDefinitions>
+
+            <!-- HEADER ROW -->
+            <DockPanel Grid.Row="0" Background="#EEE">
+                <!-- Hamburger menu -->
+                <Button Content="☰"
+                        FontSize="40"
+                        Width="70"
+                        Height="70"
+                        VerticalAlignment="Center"
+                        Click="MenuButton_Click"
+                        Margin="0,0,40,0" 
+                        Style="{StaticResource RoundedButton}">
+                    <Button.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Header="Overview" Command="{Binding openOverviewCommand}" />
+                            <MenuItem Header="Budgets" Command="{Binding openBudgetCommand}" />
+                            <MenuItem Header="Settings" Command="{Binding openSettingsCommand}" />
+                        </ContextMenu>
+                    </Button.ContextMenu>
+                </Button>
+
+                    <!-- Title -->
+                <TextBlock  Text="Overview"
+                            FontSize="50"
+                            FontWeight="Bold"
+                            VerticalAlignment="Center"
+                            Foreground="#333" />
+            </DockPanel>
+
+            <!-- Top row: Income / Spent / Balance -->
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Income Block -->
+                <Border Grid.Column="0" Margin="70" Padding="10" CornerRadius="8" Effect="{StaticResource DropShadow}">
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                            <GradientStop Color="#FFB0FFB0" Offset="0" />
+                            <GradientStop Color="#FF70D070" Offset="1" />
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <TextBlock Text="Income" FontSize="20"/>
+                        <TextBlock Text="{Binding TotalIncome}" FontWeight="Bold" FontSize="20"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Spend Block -->
+                <Border Grid.Column="1" Margin="70" Padding="10" CornerRadius="8" Effect="{StaticResource DropShadow}">
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                            <GradientStop Color="#FFFFB0B0" Offset="0" />
+                            <GradientStop Color="#FFD07070" Offset="1" />
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <TextBlock Text="Spent"  FontSize="20"/>
+                        <TextBlock Text="{Binding TotalSpent}" FontWeight="Bold"  FontSize="20"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Balance Block -->
+                <Border Grid.Column="2" Margin="70" Padding="10" CornerRadius="8" Effect="{StaticResource DropShadow}">
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                            <GradientStop Color="#FF6BD6FF" Offset="0.0" />
+                            <GradientStop Color="#FF1D92D1" Offset="1.0" />
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <TextBlock Text="Balance"  FontSize="20"/>
+                        <TextBlock Text="{Binding Balance}" FontWeight="Bold"  FontSize="20"/>
+                    </StackPanel>
+                </Border>
+            </Grid>
+
+
+            <!-- Bar chart -->
+            <Border Grid.Row="2" Background="#EEE" Margin="0">
+                <wpf:CartesianChart Series="{Binding Series}"
+                    XAxes="{Binding XAxes}"
+                    YAxes="{Binding YAxes}"
+                    LegendPosition="Right"
+                    Margin="10"
+                    Grid.Row="2" />
+
+
+            </Border>
+        </Grid>
+
+        <!-- RIGHT COLUMN -->
+        <DockPanel Grid.Column="1" Margin="10 0 0 0">
+            <!-- Top button -->
+            <Button Content="Go to Transactions"
+                Command="{Binding openTransactionlistCommand}"
+                DockPanel.Dock="Top" 
+                Height="40" Margin="0 0 0 10"
+                Style="{StaticResource RoundedButton}"
+                Effect="{StaticResource DropShadow}"/>
+
+            <!-- Bottom button -->
+            <Button Content="Add Transaction"
+                Command="{Binding openTransactionformCommand}"
+                DockPanel.Dock="Bottom"
+                Height="40" Margin="0 10 0 0"
+                Style="{StaticResource RoundedButton}"
+                Effect="{StaticResource DropShadow}"/>
+
+            <!-- Transaction list -->
+            <ListBox ItemsSource="{Binding RecentTransactions}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal" Margin="5">
+                            <TextBlock Text="{Binding Date, StringFormat='{}{0:dd MMM}'}" Width="80"/>
+                            <TextBlock Text="{Binding Category.Name}" Width="100"/>
+                            <TextBlock Text="{Binding Amount, StringFormat=C}" Width="80" TextAlignment="Right"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </DockPanel>
+    </Grid>
+
+</UserControl>

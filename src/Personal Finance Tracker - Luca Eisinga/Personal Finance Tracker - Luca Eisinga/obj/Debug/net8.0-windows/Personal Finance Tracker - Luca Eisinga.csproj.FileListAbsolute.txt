@@ -1,0 +1,9 @@
+D:\School\C#2\CSharp2-herkansing-LucaEisinga\src\Personal Finance Tracker - Luca Eisinga\Personal Finance Tracker - Luca Eisinga\obj\Debug\net8.0-windows\Personal Finance Tracker - Luca Eisinga.csproj.AssemblyReference.cache
+D:\School\C#2\CSharp2-herkansing-LucaEisinga\src\Personal Finance Tracker - Luca Eisinga\Personal Finance Tracker - Luca Eisinga\obj\Debug\net8.0-windows\View\BudgetView.g.cs
+D:\School\C#2\CSharp2-herkansing-LucaEisinga\src\Personal Finance Tracker - Luca Eisinga\Personal Finance Tracker - Luca Eisinga\obj\Debug\net8.0-windows\View\OverviewView.g.cs
+D:\School\C#2\CSharp2-herkansing-LucaEisinga\src\Personal Finance Tracker - Luca Eisinga\Personal Finance Tracker - Luca Eisinga\obj\Debug\net8.0-windows\View\SettingsView.g.cs
+D:\School\C#2\CSharp2-herkansing-LucaEisinga\src\Personal Finance Tracker - Luca Eisinga\Personal Finance Tracker - Luca Eisinga\obj\Debug\net8.0-windows\View\TransactionFormView.g.cs
+D:\School\C#2\CSharp2-herkansing-LucaEisinga\src\Personal Finance Tracker - Luca Eisinga\Personal Finance Tracker - Luca Eisinga\obj\Debug\net8.0-windows\View\TransactionlistView.g.cs
+D:\School\C#2\CSharp2-herkansing-LucaEisinga\src\Personal Finance Tracker - Luca Eisinga\Personal Finance Tracker - Luca Eisinga\obj\Debug\net8.0-windows\App.g.cs
+D:\School\C#2\CSharp2-herkansing-LucaEisinga\src\Personal Finance Tracker - Luca Eisinga\Personal Finance Tracker - Luca Eisinga\obj\Debug\net8.0-windows\Personal Finance Tracker - Luca Eisinga_MarkupCompile.cache
+D:\School\C#2\CSharp2-herkansing-LucaEisinga\src\Personal Finance Tracker - Luca Eisinga\Personal Finance Tracker - Luca Eisinga\obj\Debug\net8.0-windows\Personal Finance Tracker - Luca Eisinga_MarkupCompile.lref
