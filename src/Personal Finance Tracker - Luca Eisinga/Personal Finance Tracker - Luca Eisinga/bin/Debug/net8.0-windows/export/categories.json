@@ -1,0 +1,37 @@
+[
+  {
+    "guid": "d5168e54-709d-4ef9-bd74-e754f3a0ad23",
+    "name": "Other",
+    "budgetLimit": 10000
+  },
+  {
+    "guid": "69cbd5dd-6a67-40aa-9014-b9e3ba74b9b9",
+    "name": "Other1",
+    "budgetLimit": 1500
+  },
+  {
+    "guid": "25d6ad63-8b96-4ae7-8b82-51953fe45e0b",
+    "name": "Other2",
+    "budgetLimit": 3000
+  },
+  {
+    "guid": "8db41592-9b00-48da-92a1-74c872f5f2b7",
+    "name": "",
+    "budgetLimit": 0
+  },
+  {
+    "guid": "54c46838-50d5-430d-9d02-907181b9064f",
+    "name": "Test1",
+    "budgetLimit": 1000
+  },
+  {
+    "guid": "4f53c4e7-0d4d-440a-bb15-7776bb21ff2b",
+    "name": "Test 2",
+    "budgetLimit": 1600
+  },
+  {
+    "guid": "72089966-0a75-4941-a905-340855fc35da",
+    "name": "Test4",
+    "budgetLimit": 1800
+  }
+]

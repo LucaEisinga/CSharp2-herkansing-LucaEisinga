@@ -10,6 +10,6 @@ namespace Personal_Finance_Tracker___Luca_Eisinga.Enums
     {
         EURO, 
         DOLLAR, 
-        BRITISH_POUNF
+        BRITISH_POUND
     }
 }

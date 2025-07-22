@@ -9,23 +9,25 @@ namespace Personal_Finance_Tracker___Luca_Eisinga.Model
 {
     internal class Transaction
     {
-        public Guid guid { get; }
-        public DateTime date { get; }
-        public decimal amount { get; }
-        public string description { get; }
-        public Category category { get; }
-        public TransactionType transactionType { get; }
+        public Guid guid { get; set; } = Guid.NewGuid();
+        public DateTime date { get; set; }
+        public decimal amount { get; set; }
+        public string description { get; set; }
+        public Category category { get; set; }
+        public TransactionType transactionType { get; set; }
 
 
 
         public Transaction(DateTime date, decimal amount, string description, Category category, TransactionType transactionType)
         {
-            this.guid = Guid.NewGuid();
             this.date = date;
             this.amount = amount;
             this.description = description;
             this.category = category;
             this.transactionType = transactionType;
         }
+
+        // Parameterless constructor to build transactions back up from json
+        public Transaction() {}
     }
 }

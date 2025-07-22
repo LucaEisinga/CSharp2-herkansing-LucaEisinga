@@ -5,8 +5,142 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Personal_Finance_Tracker___Luca_Eisinga.View"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
+             d:DesignHeight="945" d:DesignWidth="1680"
+             Background="White">
+    <UserControl.Resources>
+        <DropShadowEffect x:Key="DropShadow" 
+              ShadowDepth="3" 
+              Color="Black" 
+              Opacity="0.2" 
+              BlurRadius="10"/>
+
+        <Style x:Key="RoundedButton" TargetType="Button">
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Padding" Value="10,5" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Color="#FF6BD6FF" Offset="0.0" />
+                        <GradientStop Color="#FF1D92D1" Offset="1.0" />
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                    CornerRadius="10"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="1">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                  VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.2*" />
+            <!-- Header Row -->
+            <RowDefinition Height="*" />
+            <!-- Main Content Row -->
+        </Grid.RowDefinitions>
+
+        <DockPanel Grid.Row="0" Background="White">
+            <!-- Hamburger menu -->
+            <Button Content="☰"
+                    FontSize="40"
+                    Width="70"
+                    Height="70"
+                    VerticalAlignment="Center"
+                    Click="MenuButton_Click"
+                    Margin="0,0,40,0" 
+                    Style="{StaticResource RoundedButton}">
+        <Button.ContextMenu>
+            <ContextMenu>
+                <MenuItem Header="Overview" Command="{Binding openOverviewCommand}" />
+                <MenuItem Header="Budgets" Command="{Binding openBudgetCommand}" />
+                <MenuItem Header="Settings" Command="{Binding openSettingsCommand}" />
+            </ContextMenu>
+        </Button.ContextMenu>
+            </Button>
+
+            <!-- Title -->
+            <TextBlock  Text="Transaction list"
+            FontSize="50"
+            FontWeight="Bold"
+            VerticalAlignment="Center"
+            Foreground="#333" />
+        </DockPanel>
+
+        <Grid Margin="20" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <!-- Filters -->
+                <RowDefinition Height="*" />
+                <!-- List -->
+            </Grid.RowDefinitions>
+
+            <!-- Filter Controls -->
+            <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0 0 0 20" HorizontalAlignment="Left">
+                <ComboBox Width="150" ItemsSource="{Binding sortByOptions}" SelectedItem="{Binding selectedSortOption}" />
+                <ComboBox Width="150" ItemsSource="{Binding categoryFilter}" SelectedItem="{Binding selectedCategory}" DisplayMemberPath="name" />
+                <ComboBox Width="150" ItemsSource="{Binding transactionTypes}" SelectedItem="{Binding selectedTransactionType}" />
+                <Button Content="Apply Filter" Width="120" Command="{Binding applyFilterCommand}" />
+            </StackPanel>
+
+            <!-- Transaction List -->
+            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+                <ItemsControl ItemsSource="{Binding filteredTransactions}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border Margin="5" Padding="10" CornerRadius="8"
+                                Background="#F0F4F8" BorderBrush="#DDD" BorderThickness="1">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="1.5*" />
+                                        <!-- Category -->
+                                        <ColumnDefinition Width="1*" />
+                                        <!-- Type -->
+                                        <ColumnDefinition Width="1.5*" />
+                                        <!-- Amount -->
+                                        <ColumnDefinition Width="1.5*" />
+                                        <!-- Date -->
+                                        <ColumnDefinition Width="1*" />
+                                        <!-- Description Icon -->
+                                        <ColumnDefinition Width="1*" />
+                                        <!-- Edit button -->
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBlock Text="{Binding category.name}" Grid.Column="0" FontWeight="Bold"/>
+                                    <TextBlock Text="{Binding transactionType}" Grid.Column="1" />
+                                    <TextBlock Text="{Binding amount, StringFormat=C}" Grid.Column="2" HorizontalAlignment="Right" />
+                                    <TextBlock Text="{Binding date, StringFormat='{}{0:dd MMM yyyy}'}" Grid.Column="3" HorizontalAlignment="Right"/>
+
+                                    <!-- Hover description -->
+                                    <TextBlock Grid.Column="4" Margin="10,0,0,0" FontSize="12" Foreground="Gray"
+                                           TextTrimming="CharacterEllipsis"
+                                           ToolTip="{Binding description}" Text="🛈 Description"
+                                           VerticalAlignment="Center" HorizontalAlignment="Right"/>
+
+                                    <Button Grid.Column="5" Content="Edit"
+                                            Command="{Binding DataContext.editTransactionCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                            CommandParameter="{Binding}" 
+                                            Margin="10 0 0 0" 
+                                            HorizontalAlignment="Right"
+                                            Width="60"/>
+
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+        </Grid>
     </Grid>
 </UserControl>

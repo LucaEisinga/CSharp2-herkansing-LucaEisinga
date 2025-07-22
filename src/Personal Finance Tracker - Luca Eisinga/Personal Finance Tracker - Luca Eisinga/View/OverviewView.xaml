@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:Personal_Finance_Tracker___Luca_Eisinga.View"
         xmlns:wpf="clr-namespace:LiveChartsCore.SkiaSharpView.WPF;assembly=LiveChartsCore.SkiaSharpView.WPF"
         mc:Ignorable="d"
-        d:DataContext="{d:DesignInstance vm:OverviewViewModel}"
-        d:DesignHeight="450" d:DesignWidth="800">
+        d:DesignHeight="945" d:DesignWidth="1680"
+        Background="White">
 
     <UserControl.Resources>
         <DropShadowEffect x:Key="DropShadow" 
@@ -65,7 +65,7 @@
             </Grid.RowDefinitions>
 
             <!-- HEADER ROW -->
-            <DockPanel Grid.Row="0" Background="#EEE">
+            <DockPanel Grid.Row="0" Background="White">
                 <!-- Hamburger menu -->
                 <Button Content="☰"
                         FontSize="40"
@@ -110,7 +110,7 @@
                     </Border.Background>
                     <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
                         <TextBlock Text="Income" FontSize="20"/>
-                        <TextBlock Text="{Binding TotalIncome}" FontWeight="Bold" FontSize="20"/>
+                        <TextBlock Text="{Binding totalIncome}" FontWeight="Bold" FontSize="20"/>
                     </StackPanel>
                 </Border>
 
@@ -124,7 +124,7 @@
                     </Border.Background>
                     <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
                         <TextBlock Text="Spent"  FontSize="20"/>
-                        <TextBlock Text="{Binding TotalSpent}" FontWeight="Bold"  FontSize="20"/>
+                        <TextBlock Text="{Binding totalExpenses}" FontWeight="Bold"  FontSize="20"/>
                     </StackPanel>
                 </Border>
 
@@ -138,7 +138,7 @@
                     </Border.Background>
                     <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
                         <TextBlock Text="Balance"  FontSize="20"/>
-                        <TextBlock Text="{Binding Balance}" FontWeight="Bold"  FontSize="20"/>
+                        <TextBlock Text="{Binding balance}" FontWeight="Bold"  FontSize="20"/>
                     </StackPanel>
                 </Border>
             </Grid>
@@ -146,9 +146,9 @@
 
             <!-- Bar chart -->
             <Border Grid.Row="2" Background="#EEE" Margin="0">
-                <wpf:CartesianChart Series="{Binding Series}"
-                    XAxes="{Binding XAxes}"
-                    YAxes="{Binding YAxes}"
+                <wpf:CartesianChart Series="{Binding series}"
+                    XAxes="{Binding xAxis}"
+                    YAxes="{Binding yAxis}"
                     LegendPosition="Right"
                     Margin="10"
                     Grid.Row="2" />
@@ -159,7 +159,7 @@
 
         <!-- RIGHT COLUMN -->
         <DockPanel Grid.Column="1" Margin="10 0 0 0">
-            <!-- Top button -->
+            <!-- Transaction list button -->
             <Button Content="Go to Transactions"
                 Command="{Binding openTransactionlistCommand}"
                 DockPanel.Dock="Top" 
@@ -167,22 +167,30 @@
                 Style="{StaticResource RoundedButton}"
                 Effect="{StaticResource DropShadow}"/>
 
-            <!-- Bottom button -->
+            <!-- Add transaction button -->
             <Button Content="Add Transaction"
                 Command="{Binding openTransactionformCommand}"
                 DockPanel.Dock="Bottom"
                 Height="40" Margin="0 10 0 0"
                 Style="{StaticResource RoundedButton}"
                 Effect="{StaticResource DropShadow}"/>
+            
+            <!-- Add category button -->
+            <Button Content="Add category"
+                Command="{Binding openCategoryFormCommand}"
+                DockPanel.Dock="Bottom"
+                Height="40" Margin="0 10 0 0"
+                Style="{StaticResource RoundedButton}"
+                Effect="{StaticResource DropShadow}"/>
 
             <!-- Transaction list -->
-            <ListBox ItemsSource="{Binding RecentTransactions}">
+            <ListBox ItemsSource="{Binding recentTransactions}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal" Margin="5">
-                            <TextBlock Text="{Binding Date, StringFormat='{}{0:dd MMM}'}" Width="80"/>
-                            <TextBlock Text="{Binding Category.Name}" Width="100"/>
-                            <TextBlock Text="{Binding Amount, StringFormat=C}" Width="80" TextAlignment="Right"/>
+                            <TextBlock Text="{Binding date, StringFormat='{}{0:dd MMM}'}" Width="80"/>
+                            <TextBlock Text="{Binding category.name}" Width="100"/>
+                            <TextBlock Text="{Binding amount, StringFormat=C}" Width="80" TextAlignment="Right"/>
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>

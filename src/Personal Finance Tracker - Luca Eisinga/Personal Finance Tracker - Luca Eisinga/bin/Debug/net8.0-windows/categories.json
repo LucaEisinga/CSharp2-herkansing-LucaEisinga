@@ -1,0 +1,12 @@
+[
+  {
+    "guid": "6d85ff8e-a4c2-47f0-8e41-e20080fb4fd6",
+    "name": "Test",
+    "budgetLimit": 1111101
+  },
+  {
+    "guid": "8ff3cf2e-8cca-4663-8477-31ac80ccf03c",
+    "name": "Testtest",
+    "budgetLimit": 1110
+  }
+]

@@ -9,8 +9,8 @@ namespace Personal_Finance_Tracker___Luca_Eisinga.Model
     internal class Category
     {
         public Guid guid { get; }
-        public String name { get; }
-        public decimal budgetLimit { get; }
+        public String name { get; set; }
+        public decimal budgetLimit { get; set; }
 
         public Category(String name, decimal budgetLimit)
         {

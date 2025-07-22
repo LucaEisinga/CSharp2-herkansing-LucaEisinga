@@ -1,0 +1,26 @@
+[
+  {
+    "guid": "6565df49-548b-46d4-b2f7-b916ab51f739",
+    "date": "2025-07-03T23:25:37.2345666+02:00",
+    "amount": 110,
+    "description": "Test",
+    "category": {
+      "guid": "df1fa76d-cfe1-4672-8de4-ac8f2a0eb6f0",
+      "name": "Test",
+      "budgetLimit": 1111101
+    },
+    "transactionType": 0
+  },
+  {
+    "guid": "eb705546-7a48-437b-a94f-44ba0eb7d71c",
+    "date": "2025-07-03T23:25:59.9697479+02:00",
+    "amount": 1110,
+    "description": "1111",
+    "category": {
+      "guid": "83655279-bf94-435a-be4e-770abe2318eb",
+      "name": "Testtest",
+      "budgetLimit": 1110
+    },
+    "transactionType": 1
+  }
+]

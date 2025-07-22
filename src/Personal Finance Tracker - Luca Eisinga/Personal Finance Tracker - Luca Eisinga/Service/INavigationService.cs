@@ -12,6 +12,6 @@ namespace Personal_Finance_Tracker___Luca_Eisinga.Service
     {
         UserControl? CurrentView { get; }
 
-        void navigateTo(string viewKey);
+        void navigateTo(string viewKey, object? parameter = null);
     }
 }

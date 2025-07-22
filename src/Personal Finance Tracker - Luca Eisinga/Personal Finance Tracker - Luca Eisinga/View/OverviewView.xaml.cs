@@ -19,11 +19,6 @@ namespace Personal_Finance_Tracker___Luca_Eisinga.View
         public OverviewView()
         {
             InitializeComponent();
-
-            var navigationService = new Service.NavigationService();
-            navigationService.navigateTo("Overview");
-
-            DataContext = new { Navigation = navigationService };
         }
 
         private void MenuButton_Click(object sender, RoutedEventArgs e)

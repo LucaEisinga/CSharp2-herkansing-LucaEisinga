@@ -1,0 +1,686 @@
+[
+  {
+    "guid": "f4f18782-28c3-4f81-bed8-f8ce6ac5cb56",
+    "date": "2025-08-20T00:00:00",
+    "amount": 400,
+    "description": "yes3",
+    "category": {
+      "guid": "4f6897e2-79f9-4096-800c-c1c6b5a4bd32",
+      "name": "Other",
+      "budgetLimit": 10000
+    },
+    "transactionType": 0
+  },
+  {
+    "guid": "c289f6eb-1d89-4ccf-889c-942204145d9d",
+    "date": "2025-03-02T00:00:00",
+    "amount": 700,
+    "description": "yes4",
+    "category": {
+      "guid": "f198fec0-7a60-4f4c-8c07-01e6308f884c",
+      "name": "Other1",
+      "budgetLimit": 1500
+    },
+    "transactionType": 0
+  },
+  {
+    "guid": "45f790b2-89ed-4916-b269-4c27b9192d44",
+    "date": "2025-07-03T12:24:02.5537204+02:00",
+    "amount": 700,
+    "description": "yes5",
+    "category": {
+      "guid": "d88963fe-bd57-4019-b481-35008d387b10",
+      "name": "yes1",
+      "budgetLimit": 1500
+    },
+    "transactionType": 0
+  },
+  {
+    "guid": "80af3b3a-f15b-4e91-8871-b093cf85a1e6",
+    "date": "2025-07-03T12:26:16.1976956+02:00",
+    "amount": 800,
+    "description": "yes1",
+    "category": {
+      "guid": "b924fb28-557f-4af1-a3c4-4ed8eeff5d01",
+      "name": "yes1",
+      "budgetLimit": 1500
+    },
+    "transactionType": 0
+  },
+  {
+    "guid": "f77d633c-1424-4ac2-92ea-7253041468f3",
+    "date": "2025-07-03T12:26:16.1977508+02:00",
+    "amount": 700,
+    "description": "yes2",
+    "category": {
+      "guid": "0a739ed9-4fa6-4a2c-8bab-e6b6947ceec1",
+      "name": "yes1",
+      "budgetLimit": 1500
+    },
+    "transactionType": 0
+  },
+  {
+    "guid": "38d483d9-4c90-49a6-a4a4-2d792839ec08",
+    "date": "2025-07-03T12:26:16.1977513+02:00",
+    "amount": 400,
+    "description": "yes3",
+    "category": {
+      "guid": "4ed2a75b-974b-4b40-a81c-8ac608d2ac45",
+      "name": "yes1",
+      "budgetLimit": 1500
+    },
+    "transactionType": 0
+  },
+  {
+    "guid": "3a9157f1-7777-43a3-8027-1d4ea86156ab",
+    "date": "2025-02-13T00:00:00",
+    "amount": 700,
+    "description": "yes4",
+    "category": {
+      "guid": "37c043b3-e473-4e92-800f-5846e88aa70b",
+      "name": "Test1",
+      "budgetLimit": 1000
+    },
+    "transactionType": 0
+  },
+  {
+    "guid": "79303a1f-9b13-4ecb-b8a0-fe7a1fdbf343",
+    "date": "2025-07-03T12:26:16.1977551+02:00",
+    "amount": 700,
+    "description": "yes5",
+    "category": {
+      "guid": "bcb23441-5dd8-4832-b15c-40db66761459",
+      "name": "yes1",
+      "budgetLimit": 1500
+    },
+    "transactionType": 0
+  },
+  {
+    "guid": "30824039-c166-41e8-b0cd-a1b8cbee7929",
+    "date": "2025-07-03T12:31:40.5873032+02:00",
+    "amount": 800,
+    "description": "yes1",
+    "category": {
+      "guid": "106931fd-83ea-4844-8ed4-190a3843b667",
+      "name": "yes2",
+      "budgetLimit": 1500
+    },
+    "transactionType": 1
+  },
+  {
+    "guid": "6e4d7713-69bf-445b-9883-f0f99db709c5",
+    "date": "2025-07-03T12:31:40.5873621+02:00",
+    "amount": 700,
+    "description": "yes2",
+    "category": {
+      "guid": "a60f1cf1-afcd-4977-b335-aae4f81949bb",
+      "name": "yes3",
+      "budgetLimit": 1500
+    },
+    "transactionType": 1
+  },
+  {
+    "guid": "5315669b-96e3-411a-b173-49bf0a6a73a2",
+    "date": "2025-01-13T00:00:00",
+    "amount": 400,
+    "description": "yes3",
+    "category": {
+      "guid": "1d0f2c99-ee33-4856-a8a4-41dbe1b0c3e2",
+      "name": "Test4",
+      "budgetLimit": 1800
+    },
+    "transactionType": 0
+  },
+  {
+    "guid": "86a0b29c-0ce7-4c42-aa48-4919dcad4070",
+    "date": "2025-07-03T12:31:40.5873654+02:00",
+    "amount": 700,
+    "description": "yes4",
+    "category": {
+      "guid": "f67889a4-a945-4039-88e4-9ae41e6f0365",
+      "name": "yes1",
+      "budgetLimit": 1500
+    },
+    "transactionType": 0
+  },
+  {
+    "guid": "7d937f00-cdbe-4008-b488-514a5ecf6e72",
+    "date": "2025-07-03T12:31:40.5873661+02:00",
+    "amount": 700,
+    "description": "yes5",
+    "category": {
+      "guid": "0f303569-422c-4c14-a4f3-2f76877ea7e6",
+      "name": "yes1",
+      "budgetLimit": 1500
+    },
+    "transactionType": 0
+  },
+  {
+    "guid": "56a5839f-4246-4805-9de7-0589b672e7a2",
+    "date": "2025-07-03T12:32:00.7187909+02:00",
+    "amount": 800,
+    "description": "yes1",
+    "category": {
+      "guid": "49619cba-d6e7-4ddb-b2a7-6d03362a917d",
+      "name": "yes2",
+      "budgetLimit": 1500
+    },
+    "transactionType": 1
+  },
+  {
+    "guid": "82472985-bfd2-43da-9a04-7b934ab1c7af",
+    "date": "2025-07-03T12:32:00.7187927+02:00",
+    "amount": 700,
+    "description": "yes2",
+    "category": {
+      "guid": "e9824719-2685-4483-9d26-d3c1b378d9e4",
+      "name": "yes3",
+      "budgetLimit": 1500
+    },
+    "transactionType": 1
+  },
+  {
+    "guid": "87f3a0f6-915c-481d-a00a-b6f23a1c2f90",
+    "date": "2025-07-03T12:32:00.7187937+02:00",
+    "amount": 400,
+    "description": "yes3",
+    "category": {
+      "guid": "d74298a2-bbb8-4d42-a1e8-265f53b4cf1a",
+      "name": "yes1",
+      "budgetLimit": 1500
+    },
+    "transactionType": 0
+  },
+  {
+    "guid": "6b9a8811-8cad-4dfd-92fe-8b43915aa0ef",
+    "date": "2025-07-03T12:32:00.7187943+02:00",
+    "amount": 700,
+    "description": "yes4",
+    "category": {
+      "guid": "f627ea31-29a6-4db3-9bf0-a4e187f9245b",
+      "name": "yes1",
+      "budgetLimit": 1500
+    },
+    "transactionType": 0
+  },
+  {
+    "guid": "f3ca543a-b139-4d7b-9a78-96be8331dce5",
+    "date": "2025-07-03T12:32:00.7187946+02:00",
+    "amount": 700,
+    "description": "yes5",
+    "category": {
+      "guid": "32f26caf-5c3c-4c09-862e-1208334c564a",
+      "name": "yes1",
+      "budgetLimit": 1500
+    },
+    "transactionType": 0
+  },
+  {
+    "guid": "ba32ffb6-e8bc-4dbb-bce0-aa14c493ec7f",
+    "date": "2025-07-03T12:32:06.5460132+02:00",
+    "amount": 800,
+    "description": "yes1",
+    "category": {
+      "guid": "f9df39b2-1542-4eb8-be72-4f31fcf3af8f",
+      "name": "yes2",
+      "budgetLimit": 1500
+    },
+    "transactionType": 1
+  },
+  {
+    "guid": "7286deb9-ecbe-4d71-a050-f404776117ae",
+    "date": "2025-07-03T12:32:06.5460177+02:00",
+    "amount": 700,
+    "description": "yes2",
+    "category": {
+      "guid": "7006e5bb-d3de-48d8-bd5d-5a778880fb4a",
+      "name": "yes3",
+      "budgetLimit": 1500
+    },
+    "transactionType": 1
+  },
+  {
+    "guid": "ae55f7e9-33dc-47c7-bba3-be351b3c5ce6",
+    "date": "2025-07-03T12:32:06.5460192+02:00",
+    "amount": 400,
+    "description": "yes3",
+    "category": {
+      "guid": "5490068d-88c2-442d-993c-e8f30011e7e9",
+      "name": "yes1",
+      "budgetLimit": 1500
+    },
+    "transactionType": 0
+  },
+  {
+    "guid": "6bed20f0-c511-4e1a-a85b-385acbb16be5",
+    "date": "2025-07-03T12:32:06.5460194+02:00",
+    "amount": 700,
+    "description": "yes4",
+    "category": {
+      "guid": "f35c1d6c-6ed0-4535-bc38-b324b8c6cff4",
+      "name": "yes1",
+      "budgetLimit": 1500
+    },
+    "transactionType": 0
+  },
+  {
+    "guid": "eea76fac-d362-4b1b-8fac-410be0475c25",
+    "date": "2025-07-03T12:32:06.5460195+02:00",
+    "amount": 700,
+    "description": "yes5",
+    "category": {
+      "guid": "02081067-1991-4a4c-9746-29c1738e087b",
+      "name": "yes1",
+      "budgetLimit": 1500
+    },
+    "transactionType": 0
+  },
+  {
+    "guid": "37f85673-b192-4630-afb6-8bb4f5158e18",
+    "date": "2025-07-03T12:36:56.835333+02:00",
+    "amount": 800,
+    "description": "yes1",
+    "category": {
+      "guid": "551aa783-8458-4e9c-b7df-e43df0fe812b",
+      "name": "yes2",
+      "budgetLimit": 1500
+    },
+    "transactionType": 1
+  },
+  {
+    "guid": "9190af3a-07e5-4e0e-aee4-7ebed3eb3724",
+    "date": "2025-07-03T12:36:56.8353843+02:00",
+    "amount": 700,
+    "description": "yes2",
+    "category": {
+      "guid": "e83ce328-2138-42f9-82ad-91896a5243e3",
+      "name": "yes3",
+      "budgetLimit": 1500
+    },
+    "transactionType": 1
+  },
+  {
+    "guid": "3b36d935-9214-4789-b5d3-bb008f3ff586",
+    "date": "2025-07-03T12:36:56.8353852+02:00",
+    "amount": 400,
+    "description": "yes3",
+    "category": {
+      "guid": "f10bfb0e-bd24-4436-bd71-44bd467f32c3",
+      "name": "yes1",
+      "budgetLimit": 1500
+    },
+    "transactionType": 0
+  },
+  {
+    "guid": "5aaffc7d-809c-4ecb-a7f3-d28384cc6ffe",
+    "date": "2025-07-03T12:36:56.8353874+02:00",
+    "amount": 700,
+    "description": "yes4",
+    "category": {
+      "guid": "1e2dbd03-bb48-46ac-9998-1e188e80378f",
+      "name": "yes1",
+      "budgetLimit": 1500
+    },
+    "transactionType": 0
+  },
+  {
+    "guid": "9beefaa3-8ada-4e1c-aed9-dbaab87b9d8b",
+    "date": "2025-07-03T12:36:56.8353878+02:00",
+    "amount": 700,
+    "description": "yes5",
+    "category": {
+      "guid": "ef258cdc-de66-40f9-9229-faf6374bc3e3",
+      "name": "yes1",
+      "budgetLimit": 1500
+    },
+    "transactionType": 0
+  },
+  {
+    "guid": "265dbb56-f402-4411-b8ee-b2ddc7daa1be",
+    "date": "2025-07-03T12:41:37.8408498+02:00",
+    "amount": 800,
+    "description": "yes1",
+    "category": {
+      "guid": "6065c42d-ba9a-4396-bae5-8a6a3861a148",
+      "name": "yes2",
+      "budgetLimit": 1500
+    },
+    "transactionType": 1
+  },
+  {
+    "guid": "0793a3ca-3aed-498e-8b84-1fd51c5b82da",
+    "date": "2025-07-03T12:41:37.8408931+02:00",
+    "amount": 700,
+    "description": "yes2",
+    "category": {
+      "guid": "7f445a9a-f5df-48b3-ac27-4e9bd2920463",
+      "name": "yes3",
+      "budgetLimit": 1500
+    },
+    "transactionType": 1
+  },
+  {
+    "guid": "7447dcf7-62a5-4dd2-bf31-390c8ed9893b",
+    "date": "2025-07-03T12:41:37.8408958+02:00",
+    "amount": 400,
+    "description": "yes3",
+    "category": {
+      "guid": "61354358-aa07-4e2c-ac76-d537278d0a5a",
+      "name": "yes1",
+      "budgetLimit": 1500
+    },
+    "transactionType": 0
+  },
+  {
+    "guid": "993ff934-cecc-4cee-8102-d02de4ab2d25",
+    "date": "2025-07-03T12:41:37.8408966+02:00",
+    "amount": 700,
+    "description": "yes4",
+    "category": {
+      "guid": "6a5dfeb3-0fd0-4b17-8f65-d9565dd41192",
+      "name": "yes1",
+      "budgetLimit": 1500
+    },
+    "transactionType": 0
+  },
+  {
+    "guid": "ba37e5c4-9d1d-41a5-a923-c5f65c4b6ea9",
+    "date": "2025-07-03T12:41:37.8408968+02:00",
+    "amount": 700,
+    "description": "yes5",
+    "category": {
+      "guid": "7a21f58a-f6ae-4373-8023-c739c1005b35",
+      "name": "yes1",
+      "budgetLimit": 1500
+    },
+    "transactionType": 0
+  },
+  {
+    "guid": "2db5d7bd-3e8d-414c-a20a-bda87390a3e6",
+    "date": "2025-07-03T12:43:22.7202069+02:00",
+    "amount": 800,
+    "description": "yes1",
+    "category": {
+      "guid": "a3dc9250-15c0-43dd-a15b-060eb7669f5f",
+      "name": "yes2",
+      "budgetLimit": 1500
+    },
+    "transactionType": 1
+  },
+  {
+    "guid": "bbd2333b-8df0-4db8-854b-5ed5211f7082",
+    "date": "2025-07-03T12:43:22.7202511+02:00",
+    "amount": 700,
+    "description": "yes2",
+    "category": {
+      "guid": "45016997-5e47-4585-b65a-876c8872c8bd",
+      "name": "yes3",
+      "budgetLimit": 1500
+    },
+    "transactionType": 1
+  },
+  {
+    "guid": "552cc1a0-684e-43c5-bf03-abd0fd57144c",
+    "date": "2025-07-03T12:43:22.7202516+02:00",
+    "amount": 400,
+    "description": "yes3",
+    "category": {
+      "guid": "6bd60dc6-115d-4c20-a343-16553d3c0101",
+      "name": "yes1",
+      "budgetLimit": 1500
+    },
+    "transactionType": 0
+  },
+  {
+    "guid": "3129b553-78f9-41dd-8d38-e90c7be5b15c",
+    "date": "2025-07-03T12:43:22.7202536+02:00",
+    "amount": 700,
+    "description": "yes4",
+    "category": {
+      "guid": "0716a353-508d-407d-baba-da0b3b8b982a",
+      "name": "yes1",
+      "budgetLimit": 1500
+    },
+    "transactionType": 0
+  },
+  {
+    "guid": "cddd3986-7c74-4ebf-aa81-0b9a79df742f",
+    "date": "2025-07-03T12:43:22.7202568+02:00",
+    "amount": 700,
+    "description": "yes5",
+    "category": {
+      "guid": "fd2060fc-9b09-4725-89ac-5b1ca874175b",
+      "name": "yes1",
+      "budgetLimit": 1500
+    },
+    "transactionType": 0
+  },
+  {
+    "guid": "63f56057-68e5-45c0-b862-cb24547a2f21",
+    "date": "2025-07-03T12:44:52.2697022+02:00",
+    "amount": 800,
+    "description": "yes1",
+    "category": {
+      "guid": "1c913766-d72a-481a-87d4-b4d7039e511a",
+      "name": "yes2",
+      "budgetLimit": 1500
+    },
+    "transactionType": 1
+  },
+  {
+    "guid": "3d9fa3c0-e2ff-45b9-888e-d4559a70fa3b",
+    "date": "2025-07-03T12:44:52.2697486+02:00",
+    "amount": 700,
+    "description": "yes2",
+    "category": {
+      "guid": "dc78df79-a94c-44b5-a233-02c2aeabd538",
+      "name": "yes3",
+      "budgetLimit": 1500
+    },
+    "transactionType": 1
+  },
+  {
+    "guid": "be62281a-7f96-4d6b-a336-c08d78603d85",
+    "date": "2025-07-03T12:44:52.2697494+02:00",
+    "amount": 400,
+    "description": "yes3",
+    "category": {
+      "guid": "7c0c847f-4040-4066-8096-b426f3b43885",
+      "name": "yes1",
+      "budgetLimit": 1500
+    },
+    "transactionType": 0
+  },
+  {
+    "guid": "89e156c3-812c-4cde-8d15-ed69cf441556",
+    "date": "2025-07-03T12:44:52.2697515+02:00",
+    "amount": 700,
+    "description": "yes4",
+    "category": {
+      "guid": "bab0d5c9-b5f6-4655-990f-789dc1174f6b",
+      "name": "yes1",
+      "budgetLimit": 1500
+    },
+    "transactionType": 0
+  },
+  {
+    "guid": "46209a35-5183-4c9c-b8bd-8623421779a8",
+    "date": "2025-07-03T12:44:52.2697517+02:00",
+    "amount": 700,
+    "description": "yes5",
+    "category": {
+      "guid": "4f83759e-9155-42fb-a9f9-fa4a593b91af",
+      "name": "yes1",
+      "budgetLimit": 1500
+    },
+    "transactionType": 0
+  },
+  {
+    "guid": "c642f272-4591-4f6c-bb03-5870a2eab792",
+    "date": "2025-07-03T12:58:39.1625161+02:00",
+    "amount": 800,
+    "description": "yes1",
+    "category": {
+      "guid": "b49e1499-89e7-4ae5-a709-69ba157cd480",
+      "name": "yes2",
+      "budgetLimit": 1500
+    },
+    "transactionType": 1
+  },
+  {
+    "guid": "51ab5f74-8ba7-4dc3-886f-f27e2cc68629",
+    "date": "2025-07-03T12:58:39.1625694+02:00",
+    "amount": 700,
+    "description": "yes2",
+    "category": {
+      "guid": "24448a1d-d45e-4f23-94af-bc4e0d916eb2",
+      "name": "yes3",
+      "budgetLimit": 1500
+    },
+    "transactionType": 1
+  },
+  {
+    "guid": "ac0b60c7-7910-47a4-bf3a-d839b0d372e1",
+    "date": "2025-07-03T12:58:39.1625703+02:00",
+    "amount": 400,
+    "description": "yes3",
+    "category": {
+      "guid": "a1f3f162-fca9-474f-8c80-b927bb34ec0d",
+      "name": "yes1",
+      "budgetLimit": 1500
+    },
+    "transactionType": 0
+  },
+  {
+    "guid": "66f580cc-79c6-4c33-a805-8231670cb87d",
+    "date": "2025-07-03T12:58:39.1625713+02:00",
+    "amount": 700,
+    "description": "yes4",
+    "category": {
+      "guid": "3ff36fdb-383a-43b0-921a-f02765ea92bd",
+      "name": "yes1",
+      "budgetLimit": 1500
+    },
+    "transactionType": 0
+  },
+  {
+    "guid": "dc56e9f3-ec47-4ec5-a128-3218d074882c",
+    "date": "2025-07-03T12:58:39.1625717+02:00",
+    "amount": 700,
+    "description": "yes5",
+    "category": {
+      "guid": "e1c6bbfb-d7c5-40f9-91cf-1900642772fb",
+      "name": "yes1",
+      "budgetLimit": 1500
+    },
+    "transactionType": 0
+  },
+  {
+    "guid": "6e6d4706-4f48-4280-9fe1-132ac09d2493",
+    "date": "2025-07-03T12:59:07.9337061+02:00",
+    "amount": 800,
+    "description": "yes1",
+    "category": {
+      "guid": "e4cd5d1d-0d94-48d2-b409-5860262e0f27",
+      "name": "yes2",
+      "budgetLimit": 1500
+    },
+    "transactionType": 1
+  },
+  {
+    "guid": "d6982092-4899-49e6-b14a-c03951cbf2a1",
+    "date": "2025-07-03T12:59:07.9337068+02:00",
+    "amount": 700,
+    "description": "yes2",
+    "category": {
+      "guid": "1171be32-6ead-45f2-8871-b99bee7b8417",
+      "name": "yes3",
+      "budgetLimit": 1500
+    },
+    "transactionType": 1
+  },
+  {
+    "guid": "3fe3f032-ada1-4b42-80ab-b53e449199f2",
+    "date": "2025-07-03T12:59:07.9337069+02:00",
+    "amount": 400,
+    "description": "yes3",
+    "category": {
+      "guid": "9e52dcdb-8323-43c9-8714-f892b263d78e",
+      "name": "yes1",
+      "budgetLimit": 1500
+    },
+    "transactionType": 0
+  },
+  {
+    "guid": "d3a54b9e-eb10-4406-aa53-6bfdb4c037eb",
+    "date": "2025-07-03T12:59:07.9337071+02:00",
+    "amount": 700,
+    "description": "yes4",
+    "category": {
+      "guid": "5b2f51c4-118f-4901-9df3-5654d3a445c8",
+      "name": "yes1",
+      "budgetLimit": 1500
+    },
+    "transactionType": 0
+  },
+  {
+    "guid": "3a35c7c0-2ba8-4b57-9015-c9062cd4c631",
+    "date": "2025-07-03T12:59:07.9337074+02:00",
+    "amount": 700,
+    "description": "yes5",
+    "category": {
+      "guid": "87edf8ba-acf1-4d3f-a0a5-b0434916ecac",
+      "name": "yes1",
+      "budgetLimit": 1500
+    },
+    "transactionType": 0
+  },
+  {
+    "guid": "18565e81-efb3-4ed7-bd9d-a1f5963e71ee",
+    "date": "2025-07-03T13:40:20.3939395+02:00",
+    "amount": 400,
+    "description": "Hello",
+    "category": {
+      "guid": "8d82fe73-212a-47eb-b53e-a4d05f5718c1",
+      "name": "Other1",
+      "budgetLimit": 1500
+    },
+    "transactionType": 0
+  },
+  {
+    "guid": "7dbaef1c-c7e1-4562-8dbb-a2e34765d2bd",
+    "date": "2025-06-01T00:00:00",
+    "amount": 100,
+    "description": "Test",
+    "category": {
+      "guid": "2932c5f6-4d5d-453b-944a-7d5dbc7519b4",
+      "name": "Other1",
+      "budgetLimit": 1500
+    },
+    "transactionType": 1
+  },
+  {
+    "guid": "3a571f1a-6490-49bb-ace1-5d05fd0bd0b2",
+    "date": "2025-05-05T00:00:00",
+    "amount": 1700,
+    "description": "This is a expense of 1700",
+    "category": {
+      "guid": "9db40bbf-aa4c-4cd6-b01f-22b213cbf0da",
+      "name": "Test 2",
+      "budgetLimit": 1600
+    },
+    "transactionType": 0
+  },
+  {
+    "guid": "96029413-7361-4a90-b43a-8dfca0f811fc",
+    "date": "2025-07-03T23:07:40.32573+02:00",
+    "amount": 1,
+    "description": "12",
+    "category": {
+      "guid": "c2431752-990d-4079-a8f0-5b402d868777",
+      "name": "Test 2",
+      "budgetLimit": 1600
+    },
+    "transactionType": 1
+  }
+]

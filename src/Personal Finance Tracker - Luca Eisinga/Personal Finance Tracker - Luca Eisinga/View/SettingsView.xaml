@@ -5,9 +5,108 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Personal_Finance_Tracker___Luca_Eisinga.View"
         mc:Ignorable="d"
-        Height="450" Width="800">
-    <Grid>
-        <Grid/>
+        Background="White"
+        Height="945" Width="1680">
+    <UserControl.Resources>
+        <DropShadowEffect x:Key="DropShadow" 
+              ShadowDepth="3" 
+              Color="Black" 
+              Opacity="0.2" 
+              BlurRadius="10"/>
 
+        <Style x:Key="RoundedButton" TargetType="Button">
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Padding" Value="10,5" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Color="#FF6BD6FF" Offset="0.0" />
+                        <GradientStop Color="#FF1D92D1" Offset="1.0" />
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                    CornerRadius="10"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="1">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                  VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.2*" />
+            <!-- Header Row -->
+            <RowDefinition Height="*" />
+            <!-- Main Content Row -->
+        </Grid.RowDefinitions>
+
+        <DockPanel Grid.Row="0" Background="White">
+            <!-- Hamburger menu -->
+            <Button Content="☰"
+        FontSize="40"
+        Width="70"
+        Height="70"
+        VerticalAlignment="Center"
+        Click="MenuButton_Click"
+        Margin="0,0,40,0" 
+        Style="{StaticResource RoundedButton}">
+                <Button.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Overview" Command="{Binding openOverviewCommand}" />
+                        <MenuItem Header="Budgets" Command="{Binding openBudgetCommand}" />
+                        <MenuItem Header="Settings" Command="{Binding openSettingsCommand}" />
+                    </ContextMenu>
+                </Button.ContextMenu>
+            </Button>
+
+            <!-- Title -->
+            <TextBlock  Text="Settings"
+            FontSize="50"
+            FontWeight="Bold"
+            VerticalAlignment="Center"
+            Foreground="#333" />
+        </DockPanel>
+
+        <StackPanel Orientation="Vertical" Grid.Row="1">
+
+            <!-- Export Row -->
+            <StackPanel Orientation="Horizontal">
+                <Button Content="Export as JSON" Width="100" Command="{Binding exportCommand}" />
+            </StackPanel>
+
+            <!-- Import -->
+            <Button HorizontalAlignment="Left" Content="Import" Width="100" Command="{Binding importCommand}" />
+
+            <!-- Theme Toggle -->
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                <TextBlock Text="Dark Theme:" VerticalAlignment="Center" />
+                <CheckBox IsChecked="{Binding isDarkTheme}" VerticalAlignment="Center"/>
+            </StackPanel>
+
+            <!-- Currency Selector -->
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                <TextBlock Text="Currency:" VerticalAlignment="Center" />
+                <ComboBox Width="150" ItemsSource="{Binding currencies}" SelectedItem="{Binding selectedCurrency}" />
+            </StackPanel>
+
+            <!-- Reset -->
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                <Button Content="Reset All Data" Width="150" Command="{Binding resetCommand}" />
+                <TextBlock Text="⚠ This will delete all data. You'll need to re-add everything manually." 
+                       Foreground="Red" VerticalAlignment="Center" />
+            </StackPanel>
+
+        </StackPanel>
     </Grid>
 </UserControl>

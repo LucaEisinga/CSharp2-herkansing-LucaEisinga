@@ -5,7 +5,10 @@
     <Compile Update="View\BudgetView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="View\MainWindow.xaml.cs">
+    <Compile Update="MainWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\CategoryFormView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\OverviewView.xaml.cs">
