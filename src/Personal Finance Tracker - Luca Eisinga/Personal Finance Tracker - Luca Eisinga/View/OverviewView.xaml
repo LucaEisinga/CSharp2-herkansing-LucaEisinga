@@ -109,7 +109,7 @@
                     </Border.Background>
                     <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
                         <TextBlock Text="Income" FontSize="20"/>
-                        <TextBlock Text="{Binding totalIncome}" FontWeight="Bold" FontSize="20"/>
+                        <TextBlock Text="{Binding totalIncome, StringFormat=C}" FontWeight="Bold" FontSize="20"/>
                     </StackPanel>
                 </Border>
 
@@ -123,7 +123,7 @@
                     </Border.Background>
                     <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
                         <TextBlock Text="Spent"  FontSize="20"/>
-                        <TextBlock Text="{Binding totalExpenses}" FontWeight="Bold"  FontSize="20"/>
+                        <TextBlock Text="{Binding totalExpenses, StringFormat=C}" FontWeight="Bold"  FontSize="20"/>
                     </StackPanel>
                 </Border>
 
@@ -137,7 +137,7 @@
                     </Border.Background>
                     <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
                         <TextBlock Text="Balance"  FontSize="20"/>
-                        <TextBlock Text="{Binding balance}" FontWeight="Bold"  FontSize="20"/>
+                        <TextBlock Text="{Binding balance, StringFormat=C}" FontWeight="Bold"  FontSize="20"/>
                     </StackPanel>
                 </Border>
             </Grid>
@@ -183,17 +183,44 @@
                 Effect="{StaticResource DropShadow}"/>
 
             <!-- Transaction list -->
-            <ListBox ItemsSource="{Binding recentTransactions}">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Horizontal" Margin="5">
-                            <TextBlock Text="{Binding date, StringFormat='{}{0:dd MMM}'}" Width="80"/>
-                            <TextBlock Text="{Binding category.name}" Width="100"/>
-                            <TextBlock Text="{Binding amount, StringFormat=C}" Width="80" TextAlignment="Right"/>
-                        </StackPanel>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
+            <Border BorderBrush="#CCC" BorderThickness="1" CornerRadius="5" Padding="5" Margin="10">
+                <ItemsControl ItemsSource="{Binding recentTransactions}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+
+                    <ItemsControl.ItemContainerStyle>
+                        <Style TargetType="ContentPresenter">
+                            <Setter Property="HorizontalAlignment" Value="Stretch" />
+                        </Style>
+                    </ItemsControl.ItemContainerStyle>
+
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <!-- Grid inside for layout -->
+                            <Grid Margin="5">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <!-- Date -->
+                                    <ColumnDefinition Width="*" />
+                                    <!-- Category -->
+                                    <ColumnDefinition Width="*"/>
+                                    <!-- Amount -->
+                                    <ColumnDefinition Width="*"/>
+                                    <!-- Type -->
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Text="{Binding date, StringFormat='{}{0:dd MMM}'}" Grid.Column="0" VerticalAlignment="Center"/>
+                                <TextBlock Text="{Binding category.name}" Grid.Column="1" VerticalAlignment="Center"/>
+                                <TextBlock Text="{Binding amount, StringFormat=C}" Grid.Column="2" VerticalAlignment="Center"/>
+                                <TextBlock Text="{Binding transactionType}" Grid.Column="3" VerticalAlignment="Center"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </Border>
         </DockPanel>
     </Grid>
 

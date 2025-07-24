@@ -3,12 +3,24 @@
   "WorkspaceRootPath": "D:\\School\\C#2\\CSharp2-herkansing-LucaEisinga\\src\\Personal Finance Tracker - Luca Eisinga\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BA74BB9D-93F7-4BCD-B104-1401533D907F}|Personal Finance Tracker - Luca Eisinga\\Personal Finance Tracker - Luca Eisinga.csproj|d:\\school\\c#2\\csharp2-herkansing-lucaeisinga\\src\\personal finance tracker - luca eisinga\\personal finance tracker - luca eisinga\\view\\categoryformview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{BA74BB9D-93F7-4BCD-B104-1401533D907F}|Personal Finance Tracker - Luca Eisinga\\Personal Finance Tracker - Luca Eisinga.csproj|solutionrelative:personal finance tracker - luca eisinga\\view\\categoryformview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{BA74BB9D-93F7-4BCD-B104-1401533D907F}|Personal Finance Tracker - Luca Eisinga\\Personal Finance Tracker - Luca Eisinga.csproj|d:\\school\\c#2\\csharp2-herkansing-lucaeisinga\\src\\personal finance tracker - luca eisinga\\personal finance tracker - luca eisinga\\view\\overviewview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{BA74BB9D-93F7-4BCD-B104-1401533D907F}|Personal Finance Tracker - Luca Eisinga\\Personal Finance Tracker - Luca Eisinga.csproj|solutionrelative:personal finance tracker - luca eisinga\\view\\overviewview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BA74BB9D-93F7-4BCD-B104-1401533D907F}|Personal Finance Tracker - Luca Eisinga\\Personal Finance Tracker - Luca Eisinga.csproj|d:\\school\\c#2\\csharp2-herkansing-lucaeisinga\\src\\personal finance tracker - luca eisinga\\personal finance tracker - luca eisinga\\model\\transaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BA74BB9D-93F7-4BCD-B104-1401533D907F}|Personal Finance Tracker - Luca Eisinga\\Personal Finance Tracker - Luca Eisinga.csproj|solutionrelative:personal finance tracker - luca eisinga\\model\\transaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BA74BB9D-93F7-4BCD-B104-1401533D907F}|Personal Finance Tracker - Luca Eisinga\\Personal Finance Tracker - Luca Eisinga.csproj|d:\\school\\c#2\\csharp2-herkansing-lucaeisinga\\src\\personal finance tracker - luca eisinga\\personal finance tracker - luca eisinga\\viewmodel\\overviewviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BA74BB9D-93F7-4BCD-B104-1401533D907F}|Personal Finance Tracker - Luca Eisinga\\Personal Finance Tracker - Luca Eisinga.csproj|solutionrelative:personal finance tracker - luca eisinga\\viewmodel\\overviewviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BA74BB9D-93F7-4BCD-B104-1401533D907F}|Personal Finance Tracker - Luca Eisinga\\Personal Finance Tracker - Luca Eisinga.csproj|d:\\school\\c#2\\csharp2-herkansing-lucaeisinga\\src\\personal finance tracker - luca eisinga\\personal finance tracker - luca eisinga\\viewmodel\\categoryformviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BA74BB9D-93F7-4BCD-B104-1401533D907F}|Personal Finance Tracker - Luca Eisinga\\Personal Finance Tracker - Luca Eisinga.csproj|solutionrelative:personal finance tracker - luca eisinga\\viewmodel\\categoryformviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BA74BB9D-93F7-4BCD-B104-1401533D907F}|Personal Finance Tracker - Luca Eisinga\\Personal Finance Tracker - Luca Eisinga.csproj|d:\\school\\c#2\\csharp2-herkansing-lucaeisinga\\src\\personal finance tracker - luca eisinga\\personal finance tracker - luca eisinga\\view\\categoryformview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{BA74BB9D-93F7-4BCD-B104-1401533D907F}|Personal Finance Tracker - Luca Eisinga\\Personal Finance Tracker - Luca Eisinga.csproj|solutionrelative:personal finance tracker - luca eisinga\\view\\categoryformview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BA74BB9D-93F7-4BCD-B104-1401533D907F}|Personal Finance Tracker - Luca Eisinga\\Personal Finance Tracker - Luca Eisinga.csproj|d:\\school\\c#2\\csharp2-herkansing-lucaeisinga\\src\\personal finance tracker - luca eisinga\\personal finance tracker - luca eisinga\\view\\transactionformview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
@@ -33,7 +45,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -41,7 +53,46 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Transaction.cs",
+              "DocumentMoniker": "D:\\School\\C#2\\CSharp2-herkansing-LucaEisinga\\src\\Personal Finance Tracker - Luca Eisinga\\Personal Finance Tracker - Luca Eisinga\\Model\\Transaction.cs",
+              "RelativeDocumentMoniker": "Personal Finance Tracker - Luca Eisinga\\Model\\Transaction.cs",
+              "ToolTip": "D:\\School\\C#2\\CSharp2-herkansing-LucaEisinga\\src\\Personal Finance Tracker - Luca Eisinga\\Personal Finance Tracker - Luca Eisinga\\Model\\Transaction.cs",
+              "RelativeToolTip": "Personal Finance Tracker - Luca Eisinga\\Model\\Transaction.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-24T13:39:26.42Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "OverviewViewmodel.cs",
+              "DocumentMoniker": "D:\\School\\C#2\\CSharp2-herkansing-LucaEisinga\\src\\Personal Finance Tracker - Luca Eisinga\\Personal Finance Tracker - Luca Eisinga\\Viewmodel\\OverviewViewmodel.cs",
+              "RelativeDocumentMoniker": "Personal Finance Tracker - Luca Eisinga\\Viewmodel\\OverviewViewmodel.cs",
+              "ToolTip": "D:\\School\\C#2\\CSharp2-herkansing-LucaEisinga\\src\\Personal Finance Tracker - Luca Eisinga\\Personal Finance Tracker - Luca Eisinga\\Viewmodel\\OverviewViewmodel.cs",
+              "RelativeToolTip": "Personal Finance Tracker - Luca Eisinga\\Viewmodel\\OverviewViewmodel.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAQwCwAAABxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-24T13:06:43.746Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "CategoryFormViewmodel.cs",
+              "DocumentMoniker": "D:\\School\\C#2\\CSharp2-herkansing-LucaEisinga\\src\\Personal Finance Tracker - Luca Eisinga\\Personal Finance Tracker - Luca Eisinga\\Viewmodel\\CategoryFormViewmodel.cs",
+              "RelativeDocumentMoniker": "Personal Finance Tracker - Luca Eisinga\\Viewmodel\\CategoryFormViewmodel.cs",
+              "ToolTip": "D:\\School\\C#2\\CSharp2-herkansing-LucaEisinga\\src\\Personal Finance Tracker - Luca Eisinga\\Personal Finance Tracker - Luca Eisinga\\Viewmodel\\CategoryFormViewmodel.cs",
+              "RelativeToolTip": "Personal Finance Tracker - Luca Eisinga\\Viewmodel\\CategoryFormViewmodel.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAACwAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-24T13:04:57.722Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "XamlReader.cs",
               "DocumentMoniker": "C:\\Users\\ditis\\AppData\\Local\\Temp\\.vsdbgsrc\\aad6be2495d0a786b94b3514a5b6903407fe2d6a75ad7e505df6a9d895927867\\XamlReader.cs",
               "ToolTip": "C:\\Users\\ditis\\AppData\\Local\\Temp\\.vsdbgsrc\\aad6be2495d0a786b94b3514a5b6903407fe2d6a75ad7e505df6a9d895927867\\XamlReader.cs [Read Only]",
@@ -52,7 +103,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "TransactionFormView.xaml",
               "DocumentMoniker": "D:\\School\\C#2\\CSharp2-herkansing-LucaEisinga\\src\\Personal Finance Tracker - Luca Eisinga\\Personal Finance Tracker - Luca Eisinga\\View\\TransactionFormView.xaml",
               "RelativeDocumentMoniker": "Personal Finance Tracker - Luca Eisinga\\View\\TransactionFormView.xaml",
@@ -64,7 +115,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "OverviewView.xaml",
               "DocumentMoniker": "D:\\School\\C#2\\CSharp2-herkansing-LucaEisinga\\src\\Personal Finance Tracker - Luca Eisinga\\Personal Finance Tracker - Luca Eisinga\\View\\OverviewView.xaml",
               "RelativeDocumentMoniker": "Personal Finance Tracker - Luca Eisinga\\View\\OverviewView.xaml",
@@ -76,7 +127,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "CategoryFormView.xaml",
               "DocumentMoniker": "D:\\School\\C#2\\CSharp2-herkansing-LucaEisinga\\src\\Personal Finance Tracker - Luca Eisinga\\Personal Finance Tracker - Luca Eisinga\\View\\CategoryFormView.xaml",
               "RelativeDocumentMoniker": "Personal Finance Tracker - Luca Eisinga\\View\\CategoryFormView.xaml",
@@ -88,7 +139,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 8,
               "Title": "BudgetView.xaml",
               "DocumentMoniker": "D:\\School\\C#2\\CSharp2-herkansing-LucaEisinga\\src\\Personal Finance Tracker - Luca Eisinga\\Personal Finance Tracker - Luca Eisinga\\View\\BudgetView.xaml",
               "RelativeDocumentMoniker": "Personal Finance Tracker - Luca Eisinga\\View\\BudgetView.xaml",
@@ -100,7 +151,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "TransactionlistView.xaml",
               "DocumentMoniker": "D:\\School\\C#2\\CSharp2-herkansing-LucaEisinga\\src\\Personal Finance Tracker - Luca Eisinga\\Personal Finance Tracker - Luca Eisinga\\View\\TransactionlistView.xaml",
               "RelativeDocumentMoniker": "Personal Finance Tracker - Luca Eisinga\\View\\TransactionlistView.xaml",
