@@ -6,7 +6,6 @@
         xmlns:local="clr-namespace:Personal_Finance_Tracker___Luca_Eisinga.View"
         xmlns:wpf="clr-namespace:LiveChartsCore.SkiaSharpView.WPF;assembly=LiveChartsCore.SkiaSharpView.WPF"
         mc:Ignorable="d"
-        d:DesignHeight="945" d:DesignWidth="1680"
         Background="White">
 
     <UserControl.Resources>

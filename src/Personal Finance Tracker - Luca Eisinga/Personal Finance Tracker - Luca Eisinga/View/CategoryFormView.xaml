@@ -5,8 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Personal_Finance_Tracker___Luca_Eisinga.View"
              mc:Ignorable="d" 
-                 Height="945" Width="1680"
-    Background="White">
+             Background="White">
     <UserControl.Resources>
         <DropShadowEffect x:Key="DropShadow" 
           ShadowDepth="3" 
