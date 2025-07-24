@@ -36,24 +36,24 @@ namespace Personal_Finance_Tracker___Luca_Eisinga.Viewmodel
 
         public OverviewViewmodel(INavigationService navigationService, SettingsService settingsService, DataService dataService)
         {
-            this._navigationService = navigationService;
-            this._settingsService = settingsService;
-            this._dataService = dataService;
+            _navigationService = navigationService;
+            _settingsService = settingsService;
+            _dataService = dataService;
 
-            this.openBudgetCommand = new RelayCommand(_ => _navigationService.navigateTo("Budget"));
-            this.openTransactionlistCommand = new RelayCommand(_ => _navigationService.navigateTo("Transactionlist"));
-            this.openTransactionformCommand = new RelayCommand(_ => _navigationService.navigateTo("TransactionForm"));
-            this.openSettingsCommand = new RelayCommand(_ => _navigationService.navigateTo("Settings"));
-            this.openOverviewCommand = new RelayCommand(_ => _navigationService.navigateTo("Overview"));
-            this.openCategoryFormCommand = new RelayCommand(_ => _navigationService.navigateTo("CategoryForm"));
+            openBudgetCommand = new RelayCommand(_ => _navigationService.navigateTo("Budget"));
+            openTransactionlistCommand = new RelayCommand(_ => _navigationService.navigateTo("Transactionlist"));
+            openTransactionformCommand = new RelayCommand(_ => _navigationService.navigateTo("TransactionForm"));
+            openSettingsCommand = new RelayCommand(_ => _navigationService.navigateTo("Settings"));
+            openOverviewCommand = new RelayCommand(_ => _navigationService.navigateTo("Overview"));
+            openCategoryFormCommand = new RelayCommand(_ => _navigationService.navigateTo("CategoryForm"));
 
-            var data = this._dataService.loadTransactions();
+            var data = _dataService.loadTransactions();
 
-            this.totalIncome = data
+            totalIncome = data
                 .Where(t => t.transactionType == Enums.TransactionType.INCOME)
                 .Sum(t => t.amount);
 
-            this.totalExpenses = data
+            totalExpenses = data
                 .Where(t => t.transactionType == Enums.TransactionType.EXPENSE)
                 .Sum(t => t.amount);
 

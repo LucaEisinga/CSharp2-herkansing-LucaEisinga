@@ -23,6 +23,10 @@ namespace Personal_Finance_Tracker___Luca_Eisinga.Viewmodel
         public ICommand saveCategoryFormCommand { get; }
         public ICommand cancelCategoryFormCommand { get; }
         public ICommand deleteCategoryFormCommand { get; }
+        public ICommand openSettingsCommand { get; }
+        public ICommand openOverviewCommand { get; }
+        public ICommand openBudgetCommand { get; }
+
 
         public CategoryFormViewmodel(INavigationService navigation, DataService data, Category? editingCatagory)
         {
@@ -33,6 +37,9 @@ namespace Personal_Finance_Tracker___Luca_Eisinga.Viewmodel
             saveCategoryFormCommand = new RelayCommand(_ => saveCategory());
             cancelCategoryFormCommand = new RelayCommand(_ => _navigationService.navigateTo("Overview")); 
             deleteCategoryFormCommand = new RelayCommand(_ => deleteCategory(), _ => _editingCategory != null);
+            openSettingsCommand = new RelayCommand(_ => _navigationService.navigateTo("Settings"));
+            openOverviewCommand = new RelayCommand(_ => _navigationService.navigateTo("Overview"));
+            openBudgetCommand = new RelayCommand(_ => _navigationService.navigateTo("Budget"));
         }
 
         private void saveCategory()
