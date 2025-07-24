@@ -22,9 +22,9 @@ namespace Personal_Finance_Tracker___Luca_Eisinga.Viewmodel
         public ICommand openTransactionformCommand { get; }
         public ICommand openSettingsCommand { get; }
         public ICommand openOverviewCommand { get; }
-        public ICommand openCategoryFormCommand { get; } 
+        public ICommand openCategoryFormCommand { get; }
 
-        public ObservableCollection<Transaction> recentTransactions { get; set; }
+        public ObservableCollection<TransactionDisplay> recentTransactions { get; set; }
 
         public ISeries[] series { get; set; }
         public Axis[] xAxis { get; set; }
@@ -33,6 +33,9 @@ namespace Personal_Finance_Tracker___Luca_Eisinga.Viewmodel
         public decimal totalIncome { get; private set; }
         public decimal totalExpenses { get; private set; }
         public decimal balance { get { return totalIncome - totalExpenses; } }
+        public string totalIncomeFormatted => totalIncome.ToString("C", _settingsService.getCultureInfo());
+        public string totalExpensesFormatted => totalExpenses.ToString("C", _settingsService.getCultureInfo());
+        public string balanceFormatted => balance.ToString("C", _settingsService.getCultureInfo());
 
         public OverviewViewmodel(INavigationService navigationService, SettingsService settingsService, DataService dataService)
         {
@@ -57,8 +60,11 @@ namespace Personal_Finance_Tracker___Luca_Eisinga.Viewmodel
                 .Where(t => t.transactionType == Enums.TransactionType.EXPENSE)
                 .Sum(t => t.amount);
 
-            recentTransactions = new ObservableCollection<Transaction>(
-                data.OrderByDescending(t => t.date).Take(20)
+            recentTransactions = new ObservableCollection<TransactionDisplay>(
+                data
+                    .OrderByDescending(t => t.date)
+                    .Take(20)
+                    .Select(t => new TransactionDisplay(t, _settingsService))
             );
 
             var grouped = data
