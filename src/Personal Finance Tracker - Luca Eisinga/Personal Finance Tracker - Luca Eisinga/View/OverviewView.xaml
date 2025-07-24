@@ -57,7 +57,7 @@
         <Grid Grid.Column="0">
             <Grid.RowDefinitions>
                 <!-- Top: Title and hamburger menu -->
-                <RowDefinition Height="0.1*" />
+                <RowDefinition Height="100" />
                 <!-- Top: summary boxes -->
                 <RowDefinition Height="0.4*" />
                 <!-- Bottom: bar chart -->

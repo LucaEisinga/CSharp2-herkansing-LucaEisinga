@@ -53,7 +53,8 @@ namespace Personal_Finance_Tracker___Luca_Eisinga.View {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Personal Finance Tracker - Luca Eisinga;component/view/transactionlistview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Personal Finance Tracker - Luca Eisinga;V1.0.0.0;component/view/transactionlistv" +
+                    "iew.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\View\TransactionlistView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
