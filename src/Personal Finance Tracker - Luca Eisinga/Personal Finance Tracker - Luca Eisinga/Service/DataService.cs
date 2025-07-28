@@ -11,21 +11,23 @@ namespace Personal_Finance_Tracker___Luca_Eisinga.Service
 {
     internal class DataService
     {
-        private const string TransactionsFile = "transactions.json";
-        private const string CategoriesFile = "categories.json";
+        // File paths for transactions and categories
+        private const string transactionsFile = "transactions.json";
+        private const string categoriesFile = "categories.json";
 
+        // Transaction and category save and loading methods
         public void saveTransactions(List<Transaction> transactions)
         {
             var options = new JsonSerializerOptions { WriteIndented = true };
             string json = JsonSerializer.Serialize(transactions, options);
-            File.WriteAllText(TransactionsFile, json);
+            File.WriteAllText(transactionsFile, json);
         }
 
         public List<Transaction> loadTransactions()
         {
-            if (!File.Exists(TransactionsFile)) return new List<Transaction>();
+            if (!File.Exists(transactionsFile)) return new List<Transaction>();
 
-            string json = File.ReadAllText(TransactionsFile);
+            string json = File.ReadAllText(transactionsFile);
             return JsonSerializer.Deserialize<List<Transaction>>(json) ?? new List<Transaction>();
         }
 
@@ -33,16 +35,18 @@ namespace Personal_Finance_Tracker___Luca_Eisinga.Service
         {
             var options = new JsonSerializerOptions { WriteIndented = true };
             string json = JsonSerializer.Serialize(categories, options);
-            File.WriteAllText(CategoriesFile, json);
+            File.WriteAllText(categoriesFile, json);
         }
 
         public List<Category> loadCategories()
         {
-            if (!File.Exists(CategoriesFile)) return new List<Category>();
+            if (!File.Exists(categoriesFile)) return new List<Category>();
 
-            string json = File.ReadAllText(CategoriesFile);
+            string json = File.ReadAllText(categoriesFile);
             return JsonSerializer.Deserialize<List<Category>>(json) ?? new List<Category>();
         }
+
+        // Transaction and category management methods
         public void addTransaction(Transaction transaction)
         {
             var transactions = loadTransactions();

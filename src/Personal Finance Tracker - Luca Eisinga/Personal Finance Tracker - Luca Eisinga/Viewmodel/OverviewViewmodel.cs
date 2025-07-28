@@ -13,10 +13,12 @@ namespace Personal_Finance_Tracker___Luca_Eisinga.Viewmodel
 {
     internal class OverviewViewmodel
     {
+        // Services for navigation, settings, and data management
         private readonly INavigationService _navigationService;
         private readonly SettingsService _settingsService;
         private readonly DataService _dataService;
 
+        // Commands for navigation and actions
         public ICommand openTransactionlistCommand { get; }
         public ICommand openBudgetCommand { get; }
         public ICommand openTransactionformCommand { get; }
@@ -24,12 +26,15 @@ namespace Personal_Finance_Tracker___Luca_Eisinga.Viewmodel
         public ICommand openOverviewCommand { get; }
         public ICommand openCategoryFormCommand { get; }
 
+        // Collection of recent transactions for display
         public ObservableCollection<TransactionDisplay> recentTransactions { get; set; }
 
+        // Properties for charting data
         public ISeries[] series { get; set; }
         public Axis[] xAxis { get; set; }
         public Axis[] yAxis { get; set; }
 
+        // Financial summary properties
         public decimal totalIncome { get; private set; }
         public decimal totalExpenses { get; private set; }
         public decimal balance { get { return totalIncome - totalExpenses; } }
@@ -39,6 +44,7 @@ namespace Personal_Finance_Tracker___Luca_Eisinga.Viewmodel
 
         public OverviewViewmodel(INavigationService navigationService, SettingsService settingsService, DataService dataService)
         {
+            // Initialize services and commands
             _navigationService = navigationService;
             _settingsService = settingsService;
             _dataService = dataService;
@@ -50,6 +56,7 @@ namespace Personal_Finance_Tracker___Luca_Eisinga.Viewmodel
             openOverviewCommand = new RelayCommand(_ => _navigationService.navigateTo("Overview"));
             openCategoryFormCommand = new RelayCommand(_ => _navigationService.navigateTo("CategoryForm"));
 
+            // Retrieve and process data
             var data = _dataService.loadTransactions();
 
             totalIncome = data
@@ -60,6 +67,7 @@ namespace Personal_Finance_Tracker___Luca_Eisinga.Viewmodel
                 .Where(t => t.transactionType == Enums.TransactionType.EXPENSE)
                 .Sum(t => t.amount * _settingsService.getCurrencyMultiplier());
 
+            // Create recent transactions collection
             recentTransactions = new ObservableCollection<TransactionDisplay>(
                 data
                     .OrderByDescending(t => t.date)
@@ -67,6 +75,7 @@ namespace Personal_Finance_Tracker___Luca_Eisinga.Viewmodel
                     .Select(t => new TransactionDisplay(t, _settingsService))
             );
 
+            // Prepare chart data
             var grouped = data
             .Where(t => t.date >= DateTime.Now.AddMonths(-11)) // Last 12 months
             .GroupBy(t => new DateTime(t.date.Year, t.date.Month, 1))
@@ -77,6 +86,7 @@ namespace Personal_Finance_Tracker___Luca_Eisinga.Viewmodel
             var income = grouped.Select(g => g.Where(t => t.transactionType == Enums.TransactionType.INCOME).Sum(t => t.amount)).ToList();
             var expenses = grouped.Select(g => g.Where(t => t.transactionType == Enums.TransactionType.EXPENSE).Sum(t => t.amount)).ToList();
 
+            // Create series and axes for the chart and format the values
             series = new ISeries[]
             {
                 new StackedColumnSeries<decimal>

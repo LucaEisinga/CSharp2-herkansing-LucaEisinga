@@ -13,14 +13,17 @@ namespace Personal_Finance_Tracker___Luca_Eisinga.Service
 {
     internal class SettingsService
     {
+        // Define the file path for settings storage
         private const string FilePath = "settings.json";
         public Settings settings { get; set; }
 
         public SettingsService()
         {
+            // Load settings from file or create default settings if file does not exist
             settings = loadSettings();
         }
 
+        // Settings management methods
         public void saveSettings()
         {
             var options = new JsonSerializerOptions { WriteIndented = true };
@@ -39,6 +42,7 @@ namespace Personal_Finance_Tracker___Luca_Eisinga.Service
             return JsonSerializer.Deserialize<Settings>(json) ?? new Settings(Enums.Currency.EURO, Enums.Theme.DARK);
         }
 
+        // Methods to get culture info and currency multiplier
         public CultureInfo getCultureInfo()
         {
             return settings.currency switch
@@ -63,6 +67,7 @@ namespace Personal_Finance_Tracker___Luca_Eisinga.Service
             return _conversionRates.TryGetValue(culture.Name, out var multiplier) ? multiplier : 1m;
         }
 
+        // Theme management methods
         public void applyTheme()
         {
             string themePath = settings.theme switch

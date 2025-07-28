@@ -12,15 +12,14 @@ using System.Windows.Input;
 
 namespace Personal_Finance_Tracker___Luca_Eisinga.Viewmodel
 {
-    internal class CategoryFormViewmodel
+    internal class CategoryFormViewmodel : INotifyPropertyChanged
     {
+        // Services for navigation and data management
         private readonly INavigationService _navigationService;
         private readonly DataService _dataService;
         private readonly Category? _editingCategory;
 
-        public string name { get; set; } = "";
-        public decimal budgetLimit { get; set; }
-
+        // Commands for navigation and actions
         public ICommand saveCategoryFormCommand { get; }
         public ICommand cancelCategoryFormCommand { get; }
         public ICommand deleteCategoryFormCommand { get; }
@@ -28,9 +27,36 @@ namespace Personal_Finance_Tracker___Luca_Eisinga.Viewmodel
         public ICommand openOverviewCommand { get; }
         public ICommand openBudgetCommand { get; }
 
+        // Form fields
+        public string name { get; set; } = "";
+        public decimal budgetLimit { get; set; }
+
+        // Error messages for validation
+        private string _nameError;
+        public string nameError
+        {
+            get => _nameError;
+            set
+            {
+                _nameError = value;
+                OnPropertyChanged(nameof(nameError));
+            }
+        }
+
+        private string _limitError;
+        public string limitError
+        {
+            get => _limitError;
+            set
+            {
+                _limitError = value;
+                OnPropertyChanged(nameof(limitError));
+            }
+        }
 
         public CategoryFormViewmodel(INavigationService navigation, DataService data, Category? editingCatagory)
         {
+            // Initialize services and commands
             _navigationService = navigation;
             _dataService = data;
             _editingCategory = editingCatagory;
@@ -42,6 +68,7 @@ namespace Personal_Finance_Tracker___Luca_Eisinga.Viewmodel
             openOverviewCommand = new RelayCommand(_ => _navigationService.navigateTo("Overview"));
             openBudgetCommand = new RelayCommand(_ => _navigationService.navigateTo("Budget"));
 
+            // Check if we are editing an existing category
             if (_editingCategory != null)
             {
                 // Editing: populate fields with existing data
@@ -52,6 +79,37 @@ namespace Personal_Finance_Tracker___Luca_Eisinga.Viewmodel
 
         private void saveCategory()
         {
+            bool hasError = false;
+
+            // Reset error messages
+            nameError = limitError = "";
+
+            // Validate form fields
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                nameError = "Name cannot be empty.";
+                hasError = true;
+            }
+            else if (name.Length > 50)
+            {
+                nameError = "Name cannot exceed 50 characters.";
+                hasError = true;
+            }
+            if (budgetLimit < 1)
+            {
+                limitError = "Budget limit must be 1 or higher.";
+                hasError = true;
+            }
+            else if (budgetLimit > 1000000)
+            {
+                limitError = "Budget limit cannot exceed 1,000,000.";
+                hasError = true;
+            }
+
+            // Stop if validation failed
+            if (hasError) return;
+
+            // If we reach here, all validations passed
             if (_editingCategory != null)
             {
                 // Editing: update existing fields
@@ -71,6 +129,7 @@ namespace Personal_Finance_Tracker___Luca_Eisinga.Viewmodel
 
         private void deleteCategory()
         {
+            // If we are deleting a category, we need to reassign its transactions to "Other" (A.K.A. the default) and then delete the category
             if (_editingCategory != null)
             {
                 var transactions = _dataService.loadTransactions();
@@ -90,8 +149,11 @@ namespace Personal_Finance_Tracker___Luca_Eisinga.Viewmodel
             }
         }
 
-        public event PropertyChangedEventHandler? PropertyChanged;
-        protected void OnPropertyChanged(string name) =>
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }

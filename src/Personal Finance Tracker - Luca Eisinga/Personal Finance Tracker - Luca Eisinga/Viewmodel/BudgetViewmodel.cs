@@ -14,19 +14,23 @@ namespace Personal_Finance_Tracker___Luca_Eisinga.Viewmodel
 {
     internal class BudgetViewmodel
     {
+        // Services for navigation, settings, and data management
         private readonly INavigationService _navigationService;
         private readonly SettingsService _settingsService;
         private readonly DataService _dataService;
 
+        // Commands for navigation and actions
         public ICommand openBudgetCommand { get; }
         public ICommand openSettingsCommand { get; }
         public ICommand openOverviewCommand { get; }
         public ICommand editCategoryCommand { get; }
 
+        // List of budgets to display
         public List<Budget> budgets { get; set; }
 
         public BudgetViewmodel(INavigationService navigationService, SettingsService settingsService, DataService dataService)
         {
+            // Initialize services and commands
             _navigationService = navigationService;
             _settingsService = settingsService;
             _dataService = dataService;
@@ -36,6 +40,7 @@ namespace Personal_Finance_Tracker___Luca_Eisinga.Viewmodel
             openOverviewCommand = new RelayCommand(_ => _navigationService.navigateTo("Overview"));
             editCategoryCommand = new RelayCommand(bud => editCategory(bud as Budget));
 
+            // Load categories and transactions from data service
             var categories = _dataService.loadCategories();
             var transactions = _dataService.loadTransactions()
                 .Where(t => t.transactionType == TransactionType.EXPENSE)
@@ -53,6 +58,7 @@ namespace Personal_Finance_Tracker___Luca_Eisinga.Viewmodel
                 }
             }
 
+            // Create budgets for each category, calculating spent amounts
             this.budgets = categories
                 .Select(cat =>
                 {
@@ -68,6 +74,7 @@ namespace Personal_Finance_Tracker___Luca_Eisinga.Viewmodel
 
         private void editCategory(Budget budget)
         {
+            // Navigate to the CategoryForm with the selected budget's category
             if (budget != null)
             {
                 _navigationService.navigateTo("CategoryForm", budget.category);

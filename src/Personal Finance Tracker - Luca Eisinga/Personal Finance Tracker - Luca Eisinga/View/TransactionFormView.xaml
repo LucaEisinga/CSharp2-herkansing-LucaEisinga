@@ -13,7 +13,7 @@
               Opacity="0.2" 
               BlurRadius="10"/>
 
-        <Style x:Key="RoundedButton" TargetType="Button">
+        <Style x:Key="RoundedObject" TargetType="Button">
             <Setter Property="Foreground" Value="White" />
             <Setter Property="FontWeight" Value="Bold" />
             <Setter Property="Padding" Value="10,5" />
@@ -63,7 +63,7 @@
                     VerticalAlignment="Center"
                     Click="MenuButton_Click"
                     Margin="0,0,40,0" 
-                    Style="{StaticResource RoundedButton}">
+                    Style="{StaticResource RoundedObject}">
             <Button.ContextMenu>
                 <ContextMenu>
                     <MenuItem Header="Overview" Command="{Binding openOverviewCommand}" />
@@ -81,6 +81,7 @@
             Foreground="#333" />
         </DockPanel>
 
+        <!-- Main content -->
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
@@ -106,15 +107,17 @@
 
             <!-- Category Dropdown -->
             <TextBlock Text="Category:" Grid.Row="0" Grid.ColumnSpan="3" />
-            <ComboBox Grid.Row="0" Grid.ColumnSpan="3" Margin="0,20,0,10"
+            <ComboBox Grid.Row="0" Grid.ColumnSpan="3" Margin="0,20,0,20"
                   ItemsSource="{Binding categories}"
                   DisplayMemberPath="name"
                   SelectedItem="{Binding selectedCategory}" />
+            <TextBlock Text="{Binding categoryError}" Foreground="Red" FontSize="12" Grid.Row="0" Grid.ColumnSpan="3" VerticalAlignment="Bottom"/>
 
             <!-- Amount -->
             <TextBlock Text="Amount:" Grid.Row="1" Grid.ColumnSpan="3" />
-            <TextBox Grid.Row="1" Grid.ColumnSpan="3" Margin="0,20,0,10"
+            <TextBox Grid.Row="1" Grid.ColumnSpan="3" Margin="0,20,0,20"
                  Text="{Binding amount}" />
+            <TextBlock Text="{Binding amountError}" Foreground="Red" FontSize="12" Grid.Row="1" Grid.ColumnSpan="3" VerticalAlignment="Bottom"/>
 
             <!-- Transaction Type -->
             <TextBlock Text="Transaction Type:" Grid.Row="2" Grid.ColumnSpan="2" />
@@ -124,17 +127,19 @@
 
             <!-- Date -->
             <TextBlock Text="Date:" Grid.Row="3" Grid.ColumnSpan="2" />
-            <DatePicker Grid.Row="3" Grid.ColumnSpan="3" Margin="0,20,0,10"
+            <DatePicker Grid.Row="3" Grid.ColumnSpan="3" Margin="0,20,0,20"
                     SelectedDate="{Binding date}" />
+            <TextBlock Text="{Binding dateError}" Foreground="Red" FontSize="12" Grid.Row="3" Grid.ColumnSpan="3" VerticalAlignment="Bottom"/>
 
             <!-- Description -->
-            <TextBlock Text="Description:" Grid.Row="4" Grid.ColumnSpan="2" />
-            <TextBox Grid.Row="5" Grid.ColumnSpan="3" Margin="0,5,0,10"
+            <TextBlock Text="Description:" Grid.Row="4" Grid.ColumnSpan="2" Margin="0, 5, 0, 10"/>
+            <TextBox Grid.Row="5" Grid.ColumnSpan="3" Margin="0,5,0,20"
                  Text="{Binding description}"
                  AcceptsReturn="True" 
                  TextWrapping="Wrap" 
                  VerticalScrollBarVisibility="Auto"
-                 VerticalAlignment="Stretch"/>     
+                 VerticalAlignment="Stretch"/>
+            <TextBlock Text="{Binding descriptionError}" Foreground="Red" FontSize="12" Grid.Row="4" Grid.ColumnSpan="3" VerticalAlignment="Bottom"/>
 
             <!-- Buttons -->
             <Button Content="Cancel" Grid.Row="6" Grid.Column="0" 

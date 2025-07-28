@@ -14,15 +14,18 @@ namespace Personal_Finance_Tracker___Luca_Eisinga.Service
 {
     internal class NavigationService : INavigationService, INotifyPropertyChanged
     {
+        // Services for settings and data management
         private readonly SettingsService _settingsService;
         private readonly DataService _dataService;
 
         public NavigationService(SettingsService settingsService, DataService dataService)
         {
-            this._settingsService = settingsService;
-            this._dataService = dataService;
+            // Initialize services
+            _settingsService = settingsService;
+            _dataService = dataService;
         }
 
+        // Current view being displayed in the application
         private UserControl? _currentView;
 
         public UserControl? CurrentView
@@ -40,6 +43,7 @@ namespace Personal_Finance_Tracker___Luca_Eisinga.Service
 
         public void navigateTo(string viewKey, object? parameter = null)
         {
+            // Validate the viewKey and set the CurrentView based on it
             CurrentView = viewKey switch
             {
                 "Overview" => new OverviewView { DataContext = new OverviewViewmodel(this, this._settingsService, this._dataService)},

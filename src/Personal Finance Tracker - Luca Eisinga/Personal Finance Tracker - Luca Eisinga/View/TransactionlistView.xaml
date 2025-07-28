@@ -14,7 +14,7 @@
               Opacity="0.2" 
               BlurRadius="10"/>
 
-        <Style x:Key="RoundedButton" TargetType="Button">
+        <Style x:Key="RoundedObject" TargetType="Button">
             <Setter Property="Foreground" Value="White" />
             <Setter Property="FontWeight" Value="Bold" />
             <Setter Property="Padding" Value="10,5" />
@@ -60,7 +60,7 @@
                     VerticalAlignment="Center"
                     Click="MenuButton_Click"
                     Margin="0,0,40,0" 
-                    Style="{StaticResource RoundedButton}">
+                    Style="{StaticResource RoundedObject}">
         <Button.ContextMenu>
             <ContextMenu>
                 <MenuItem Header="Overview" Command="{Binding openOverviewCommand}" />
@@ -78,6 +78,7 @@
             Foreground="#333" />
         </DockPanel>
 
+        <!-- Main content -->
         <Grid Margin="20" Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
@@ -128,6 +129,7 @@
                                            ToolTip="{Binding description}" Text="🛈 Description"
                                            VerticalAlignment="Center" HorizontalAlignment="Right"/>
 
+                                    <!-- Edit button -->
                                     <Button Grid.Column="5" Content="Edit"
                                             Command="{Binding DataContext.editTransactionCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
                                             CommandParameter="{Binding}" 

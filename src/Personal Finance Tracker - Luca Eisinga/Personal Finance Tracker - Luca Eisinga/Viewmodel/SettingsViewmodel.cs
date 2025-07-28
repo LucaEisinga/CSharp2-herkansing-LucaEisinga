@@ -16,10 +16,12 @@ namespace Personal_Finance_Tracker___Luca_Eisinga.Viewmodel
 {
     internal class SettingsViewmodel
     {
+        // Services for navigation, settings, and data management
         private readonly INavigationService _navigationService;
         private readonly SettingsService _settingsService;
         private readonly DataService _dataService;
 
+        // Commands for navigation and actions
         public ICommand openBudgetCommand { get; }
         public ICommand openSettingsCommand { get; }
         public ICommand openOverviewCommand { get; }
@@ -28,9 +30,11 @@ namespace Personal_Finance_Tracker___Luca_Eisinga.Viewmodel
         public ICommand resetCommand { get; }
         public ICommand saveSettingsCommand { get; }
 
+        // Export formats
         public List<string> exportFormats { get; } = new() { "JSON"};
         public string selectedExportFormat { get; set; } = "JSON";
 
+        // Currency settings
         public List<Currency> currencies { get; } = Enum.GetValues(typeof(Currency)).Cast<Currency>().ToList();
         public Currency selectedCurrency
         {
@@ -45,6 +49,7 @@ namespace Personal_Finance_Tracker___Luca_Eisinga.Viewmodel
 
         public SettingsViewmodel(INavigationService navigationService, SettingsService settingsService, DataService dataService)
         {
+            // Initialize services and commands
             _navigationService = navigationService;
             _settingsService = settingsService;
             _dataService = dataService;
@@ -59,6 +64,7 @@ namespace Personal_Finance_Tracker___Luca_Eisinga.Viewmodel
 
         private void export()
         {
+            // Open a save file dialog to select the location for export
             var saveFileDialog = new Microsoft.Win32.SaveFileDialog
             {
                 Filter = "JSON files (*.json)|*.json",
@@ -66,20 +72,24 @@ namespace Personal_Finance_Tracker___Luca_Eisinga.Viewmodel
                 Title = "Save Exported Data"
             };
 
+            // Check if the user selected a file
             if (saveFileDialog.ShowDialog() == true)
             {
+                // Create a JsonSerializerOptions instance to handle serialization settings
                 var options = new JsonSerializerOptions
                 {
                     WriteIndented = true,
                     ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles
                 };
 
+                // Prepare the data to export
                 var exportData = new
                 {
                     transactions = _dataService.loadTransactions(),
                     categories = _dataService.loadCategories()
                 };
 
+                // Serialize the data to JSON
                 var exportJson = JsonSerializer.Serialize(exportData, options);
                 File.WriteAllText(saveFileDialog.FileName, exportJson);
 
@@ -91,6 +101,7 @@ namespace Personal_Finance_Tracker___Luca_Eisinga.Viewmodel
 
         private void import()
         {
+            // Open a file dialog to select the JSON file for import
             var openFileDialog = new Microsoft.Win32.OpenFileDialog
             {
                 Filter = "JSON files (*.json)|*.json",
@@ -101,9 +112,11 @@ namespace Personal_Finance_Tracker___Luca_Eisinga.Viewmodel
             {
                 try
                 {
+                    // Read the JSON file and deserialize it into the ImportWrapper class
                     string json = File.ReadAllText(openFileDialog.FileName);
                     var importData = JsonSerializer.Deserialize<ImportWrapper>(json);
 
+                    // Check if the import data is valid
                     if (importData != null)
                     {
                         _dataService.saveTransactions(importData.transactions ?? new List<Transaction>());
@@ -122,6 +135,7 @@ namespace Personal_Finance_Tracker___Luca_Eisinga.Viewmodel
 
         private void resetAll()
         {
+            // Confirm with the user before resetting all data
             var result = MessageBox.Show(
                 "Are you sure you want to delete all data? This action cannot be undone.",
                 "Confirm Reset",
@@ -129,10 +143,12 @@ namespace Personal_Finance_Tracker___Luca_Eisinga.Viewmodel
                 MessageBoxImage.Warning
             );
 
+            // If the user confirms, delete the transactions file and reset categories
             if (result == MessageBoxResult.Yes)
             {
                 File.Delete("transactions.json");
 
+                // Load existing categories and filter out those that cannot be deleted
                 var categories = _dataService.loadCategories().Where(c => !c.canDelete);
 
                 _dataService.saveCategories(categories.ToList());
@@ -143,6 +159,7 @@ namespace Personal_Finance_Tracker___Luca_Eisinga.Viewmodel
             
         }
 
+        // Wrapper class for import data to match the expected structure
         private class ImportWrapper
         {
             public List<Transaction> transactions { get; set; }

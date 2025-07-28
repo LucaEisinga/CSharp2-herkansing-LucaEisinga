@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Personal Finance Tracker - Luca Eisinga")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3dfe4a037c27fc3ab493f70c6ea411babb3ee64a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d8d33ffe1a19c49d25bce709ec47150371f1c98e")]
 [assembly: System.Reflection.AssemblyProductAttribute("Personal Finance Tracker - Luca Eisinga")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Personal Finance Tracker - Luca Eisinga")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

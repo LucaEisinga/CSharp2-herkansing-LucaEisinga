@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Personal_Finance_Tracker___Luca_Eisinga.Model
 {
+    // TransactionDisplay class to format and display transaction details
     internal class TransactionDisplay
     {
         private readonly Transaction _transaction;
@@ -31,5 +32,6 @@ namespace Personal_Finance_Tracker___Luca_Eisinga.Model
         }
         public string transactionType => _transaction.transactionType.ToString();
         public string description => _transaction.description;
+        public Transaction transaction => _transaction;
     }
 }

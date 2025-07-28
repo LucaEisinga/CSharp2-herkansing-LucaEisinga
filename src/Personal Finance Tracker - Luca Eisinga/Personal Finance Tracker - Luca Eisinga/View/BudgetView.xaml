@@ -18,7 +18,7 @@
                   Opacity="0.2" 
                   BlurRadius="10"/>
 
-        <Style x:Key="RoundedButton" TargetType="Button">
+        <Style x:Key="RoundedObject" TargetType="Button">
             <Setter Property="Foreground" Value="White" />
             <Setter Property="FontWeight" Value="Bold" />
             <Setter Property="Padding" Value="10,5" />
@@ -82,7 +82,7 @@
             VerticalAlignment="Center"
             Click="MenuButton_Click"
             Margin="0,0,40,0" 
-            Style="{StaticResource RoundedButton}">
+            Style="{StaticResource RoundedObject}">
                 <Button.ContextMenu>
                     <ContextMenu>
                         <MenuItem Header="Overview" Command="{Binding openOverviewCommand}" />
@@ -102,6 +102,7 @@
             </Border>
         </DockPanel>
 
+        <!-- Main content -->
         <ItemsControl ItemsSource="{Binding budgets}" Grid.Row="1">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
@@ -115,12 +116,18 @@
                                 <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
 
+                            <!-- Name -->
                             <TextBlock Text="{Binding category.name}" Grid.Column="0" FontSize="16" VerticalAlignment="Center"/>
+                            <!-- Budget limit -->
                             <TextBlock Text="{Binding limit, StringFormat=C}" Grid.Column="1" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                            <!-- Amount spent -->
                             <TextBlock Text="{Binding spent, StringFormat=C}" Grid.Column="2" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                            <!-- Progressbar -->
                             <ProgressBar Value="{Binding percentage, Mode=OneWay}" Maximum="100" Height="20" Grid.Column="3" Margin="10,0"/>
+                            <!-- Warning icon -->
                             <TextBlock Text="⚠" Foreground="Red" FontSize="16" Grid.Column="4"
                                Visibility="{Binding isOverLimit, Converter={StaticResource boolToVisibilityConverter}}" />
+                            <!-- Edit button -->
                             <Button Grid.Column="5" Content="Edit"
                                 Command="{Binding DataContext.editCategoryCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
                                 CommandParameter="{Binding}" 
