@@ -4,6 +4,7 @@ using Personal_Finance_Tracker___Luca_Eisinga.Model;
 using Personal_Finance_Tracker___Luca_Eisinga.Service;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,34 +21,57 @@ namespace Personal_Finance_Tracker___Luca_Eisinga.Viewmodel
         public ICommand openBudgetCommand { get; }
         public ICommand openSettingsCommand { get; }
         public ICommand openOverviewCommand { get; }
+        public ICommand editCategoryCommand { get; }
 
-        public List<Budget> budgets { get; private set; }
+        public List<Budget> budgets { get; set; }
 
         public BudgetViewmodel(INavigationService navigationService, SettingsService settingsService, DataService dataService)
         {
-            this._navigationService = navigationService;
-            this._settingsService = settingsService;
-            this._dataService = dataService;
+            _navigationService = navigationService;
+            _settingsService = settingsService;
+            _dataService = dataService;
 
-            this.openBudgetCommand = new RelayCommand(_ => _navigationService.navigateTo("Budget"));
-            this.openSettingsCommand = new RelayCommand(_ => _navigationService.navigateTo("Settings"));
-            this.openOverviewCommand = new RelayCommand(_ => _navigationService.navigateTo("Overview"));
+            openBudgetCommand = new RelayCommand(_ => _navigationService.navigateTo("Budget"));
+            openSettingsCommand = new RelayCommand(_ => _navigationService.navigateTo("Settings"));
+            openOverviewCommand = new RelayCommand(_ => _navigationService.navigateTo("Overview"));
+            editCategoryCommand = new RelayCommand(bud => editCategory(bud as Budget));
 
-            var categories = this._dataService.loadCategories();
-            var transactions = this._dataService.loadTransactions()
+            var categories = _dataService.loadCategories();
+            var transactions = _dataService.loadTransactions()
                 .Where(t => t.transactionType == TransactionType.EXPENSE)
                 .ToList();
 
+            // Build a category lookup by GUID
+            var categoryLookup = categories.ToDictionary(c => c.guid, c => c);
+
+            // Rebind category references in transactions to the loaded categories
+            foreach (var tx in transactions)
+            {
+                if (categoryLookup.TryGetValue(tx.category.guid, out var realCategory))
+                {
+                    tx.category = realCategory; // Fix reference so the GUIDs match
+                }
+            }
+
             this.budgets = categories
                 .Select(cat =>
-                    {
-                        var spent = transactions
-                            .Where(t => t.category.guid == cat.guid)
-                            .Sum(t => t.amount);
+                {
+                    var spent = transactions
+                        .Where(t => t.category.guid == cat.guid)
+                        .Sum(t => t.amount);
 
-                        return new Budget(cat.name, cat.budgetLimit, spent);                       
-                    })
+                    return new Budget(cat, cat.budgetLimit, spent, _settingsService);
+                })
                 .ToList();
+
+        }
+
+        private void editCategory(Budget budget)
+        {
+            if (budget != null)
+            {
+                _navigationService.navigateTo("CategoryForm", budget.category);
+            }
         }
     }
 }

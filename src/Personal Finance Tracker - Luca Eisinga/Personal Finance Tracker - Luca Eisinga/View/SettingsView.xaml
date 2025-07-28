@@ -5,8 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Personal_Finance_Tracker___Luca_Eisinga.View"
         mc:Ignorable="d"
-        Background="White"
-        Height="945" Width="1680">
+        Background="White">
     <UserControl.Resources>
         <DropShadowEffect x:Key="DropShadow" 
               ShadowDepth="3" 
@@ -81,29 +80,26 @@
         <StackPanel Orientation="Vertical" Grid.Row="1">
 
             <!-- Export Row -->
-            <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Export and Import Settings" FontSize="24" FontWeight="Bold" Margin="0,10,0,0"/>
+            <StackPanel Orientation="Horizontal" Margin="0, 5">
                 <Button Content="Export as JSON" Width="100" Command="{Binding exportCommand}" />
             </StackPanel>
 
             <!-- Import -->
             <Button HorizontalAlignment="Left" Content="Import" Width="100" Command="{Binding importCommand}" />
 
-            <!-- Theme Toggle -->
-            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                <TextBlock Text="Dark Theme:" VerticalAlignment="Center" />
-                <CheckBox IsChecked="{Binding isDarkTheme}" VerticalAlignment="Center"/>
-            </StackPanel>
-
             <!-- Currency Selector -->
+            <TextBlock Text="Select Currency" FontSize="24" FontWeight="Bold" Margin="0,20,0,0"/>
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                 <TextBlock Text="Currency:" VerticalAlignment="Center" />
                 <ComboBox Width="150" ItemsSource="{Binding currencies}" SelectedItem="{Binding selectedCurrency}" />
             </StackPanel>
 
             <!-- Reset -->
+            <TextBlock Text="Reset Data" FontSize="24" FontWeight="Bold" Margin="0,20,0,0"/>
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                 <Button Content="Reset All Data" Width="150" Command="{Binding resetCommand}" />
-                <TextBlock Text="⚠ This will delete all data. You'll need to re-add everything manually." 
+                <TextBlock Text="⚠ This will delete all data except for the 4 default categories. Everything else needs to be added manually again." 
                        Foreground="Red" VerticalAlignment="Center" />
             </StackPanel>
 

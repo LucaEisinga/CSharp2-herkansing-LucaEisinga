@@ -102,7 +102,7 @@
             </Border>
         </DockPanel>
 
-        <ItemsControl ItemsSource="{Binding budgets}">
+        <ItemsControl ItemsSource="{Binding budgets}" Grid.Row="1">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <Border Margin="10" Padding="10" CornerRadius="10" Background="White" Effect="{StaticResource DropShadow}">
@@ -110,15 +110,23 @@
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="2*" />
                                 <ColumnDefinition Width="1*" />
+                                <ColumnDefinition Width="1*" />
                                 <ColumnDefinition Width="2*" />
                                 <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
 
-                            <TextBlock Text="{Binding Budget.categoryName}" Grid.Column="0" FontSize="16" VerticalAlignment="Center"/>
-                            <TextBlock Text="{Binding spent, StringFormat=C}" Grid.Column="1" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-                            <ProgressBar Value="{Binding percentage}" Maximum="100" Height="20" Grid.Column="2" Margin="10,0"/>
-                            <TextBlock Text="⚠" Foreground="Red" FontSize="16" Grid.Column="3"
+                            <TextBlock Text="{Binding category.name}" Grid.Column="0" FontSize="16" VerticalAlignment="Center"/>
+                            <TextBlock Text="{Binding limit, StringFormat=C}" Grid.Column="1" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                            <TextBlock Text="{Binding spent, StringFormat=C}" Grid.Column="2" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                            <ProgressBar Value="{Binding percentage, Mode=OneWay}" Maximum="100" Height="20" Grid.Column="3" Margin="10,0"/>
+                            <TextBlock Text="⚠" Foreground="Red" FontSize="16" Grid.Column="4"
                                Visibility="{Binding isOverLimit, Converter={StaticResource boolToVisibilityConverter}}" />
+                            <Button Grid.Column="5" Content="Edit"
+                                Command="{Binding DataContext.editCategoryCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                CommandParameter="{Binding}" 
+                                Margin="10 0 0 0" 
+                                HorizontalAlignment="Right"
+                                Width="60"/>        
                         </Grid>
                     </Border>
                 </DataTemplate>

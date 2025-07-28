@@ -212,10 +212,10 @@
                                     <!-- Type -->
                                 </Grid.ColumnDefinitions>
 
-                                <TextBlock Text="{Binding DateFormatted}" Grid.Column="0" VerticalAlignment="Center"/>
-                                <TextBlock Text="{Binding CategoryName}" Grid.Column="1" VerticalAlignment="Center"/>
-                                <TextBlock Text="{Binding AmountFormatted}" Grid.Column="2" VerticalAlignment="Center"/>
-                                <TextBlock Text="{Binding TransactionType}" Grid.Column="3" VerticalAlignment="Center"/>
+                                <TextBlock Text="{Binding dateFormatted}" Grid.Column="0" VerticalAlignment="Center"/>
+                                <TextBlock Text="{Binding categoryName}" Grid.Column="1" VerticalAlignment="Center"/>
+                                <TextBlock Text="{Binding amountFormatted}" Grid.Column="2" VerticalAlignment="Center"/>
+                                <TextBlock Text="{Binding transactionType}" Grid.Column="3" VerticalAlignment="Center"/>
                             </Grid>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>

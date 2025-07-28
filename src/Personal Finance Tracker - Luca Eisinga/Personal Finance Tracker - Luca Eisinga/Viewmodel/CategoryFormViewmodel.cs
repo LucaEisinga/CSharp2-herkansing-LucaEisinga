@@ -4,6 +4,7 @@ using Personal_Finance_Tracker___Luca_Eisinga.Service;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,10 +37,17 @@ namespace Personal_Finance_Tracker___Luca_Eisinga.Viewmodel
 
             saveCategoryFormCommand = new RelayCommand(_ => saveCategory());
             cancelCategoryFormCommand = new RelayCommand(_ => _navigationService.navigateTo("Overview")); 
-            deleteCategoryFormCommand = new RelayCommand(_ => deleteCategory(), _ => _editingCategory != null);
+            deleteCategoryFormCommand = new RelayCommand(_ => deleteCategory(), _ => _editingCategory != null && _editingCategory.canDelete);
             openSettingsCommand = new RelayCommand(_ => _navigationService.navigateTo("Settings"));
             openOverviewCommand = new RelayCommand(_ => _navigationService.navigateTo("Overview"));
             openBudgetCommand = new RelayCommand(_ => _navigationService.navigateTo("Budget"));
+
+            if (_editingCategory != null)
+            {
+                // Editing: populate fields with existing data
+                name = _editingCategory.name;
+                budgetLimit = _editingCategory.budgetLimit;
+            }
         }
 
         private void saveCategory()
@@ -54,7 +62,7 @@ namespace Personal_Finance_Tracker___Luca_Eisinga.Viewmodel
             }
             else
             {
-                var newCategory = new Category(name, budgetLimit);
+                var newCategory = new Category(name, budgetLimit, true);
                 _dataService.addCategory(newCategory);
             }
 
@@ -65,8 +73,20 @@ namespace Personal_Finance_Tracker___Luca_Eisinga.Viewmodel
         {
             if (_editingCategory != null)
             {
+                var transactions = _dataService.loadTransactions();
+                var category = _dataService.loadCategories().Where(c => c.name == "Other");
+
+                foreach (var tx in transactions)
+                {
+                    if (tx.category.guid == _editingCategory.guid)
+                    {
+                        tx.category = category.FirstOrDefault();
+                    }
+                }
+
+                _dataService.saveTransactions(transactions.ToList());
                 _dataService.deleteCategory(_editingCategory);
-                _navigationService.navigateTo("Transactionlist");
+                _navigationService.navigateTo("Budget");
             }
         }
 

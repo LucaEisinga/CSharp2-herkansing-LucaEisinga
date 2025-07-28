@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Personal_Finance_Tracker___Luca_Eisinga.Model
 {
-    class TransactionDisplay
+    internal class TransactionDisplay
     {
         private readonly Transaction _transaction;
         private readonly SettingsService _settingsService;
@@ -18,11 +18,18 @@ namespace Personal_Finance_Tracker___Luca_Eisinga.Model
             _settingsService = settingsService;
         }
 
-        public string DateFormatted => _transaction.date.ToString("dd MMM");
-        public string CategoryName => _transaction.category?.name ?? "";
-        public string AmountFormatted => _transaction.amount.ToString("C", _settingsService.getCultureInfo());
-        public string TransactionType => _transaction.transactionType.ToString();
-
-        public Transaction Model => _transaction;
+        public string dateFormatted => _transaction.date.ToString("dd MMM");
+        public string categoryName => _transaction.category?.name ?? "";
+        public string amountFormatted
+        {
+            get
+            {
+                var multiplier = _settingsService.getCurrencyMultiplier();
+                var convertedAmount = _transaction.amount * multiplier;
+                return convertedAmount.ToString("C", _settingsService.getCultureInfo());
+            }
+        }
+        public string transactionType => _transaction.transactionType.ToString();
+        public string description => _transaction.description;
     }
 }

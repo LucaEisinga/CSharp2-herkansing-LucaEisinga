@@ -25,7 +25,7 @@ namespace Personal_Finance_Tracker___Luca_Eisinga.Viewmodel
         public ICommand editTransactionCommand { get; }
 
         public List<Transaction> allTransactions { get; private set; }
-        public ObservableCollection<Transaction> filteredTransactions { get; set; }
+        public ObservableCollection<TransactionDisplay> filteredTransactions { get; set; }
         public ObservableCollection<Category> categoryFilter { get; set; }
         public Category selectedCategory { get; set; }
 
@@ -43,7 +43,13 @@ namespace Personal_Finance_Tracker___Luca_Eisinga.Viewmodel
 
             categoryFilter = new ObservableCollection<Category>(this._dataService.loadCategories()); 
             allTransactions = _dataService.loadTransactions();
-            filteredTransactions = new ObservableCollection<Transaction>(allTransactions);
+            filteredTransactions = new ObservableCollection<TransactionDisplay>();
+
+            foreach (var tx in allTransactions)
+            {
+                filteredTransactions.Add(new TransactionDisplay(tx, _settingsService));
+            }
+
 
             openBudgetCommand = new RelayCommand(_ => _navigationService.navigateTo("Budget"));
             openSettingsCommand = new RelayCommand(_ => _navigationService.navigateTo("Settings"));
@@ -73,7 +79,10 @@ namespace Personal_Finance_Tracker___Luca_Eisinga.Viewmodel
 
             filteredTransactions.Clear();
             foreach (var tx in filtered)
-                filteredTransactions.Add(tx);
+            {
+                var txFormatted = new TransactionDisplay(tx, _settingsService);
+                filteredTransactions.Add(txFormatted);
+            }
         }
 
         private void editTransaction(Transaction? transaction)

@@ -1,7 +1,26 @@
 [
   {
-    "guid": "57cb80df-b2f4-47b5-8eef-702fd7ee660d",
-    "name": "Groceries",
-    "budgetLimit": 1000
+    "guid": "2f028f35-3acf-471c-a8d7-eed70fc9c173",
+    "name": "Other",
+    "budgetLimit": 1000,
+    "canDelete": false
+  },
+  {
+    "guid": "1cdf80b2-62d4-4bb0-8040-6c5c76ee0061",
+    "name": "Food",
+    "budgetLimit": 19000,
+    "canDelete": false
+  },
+  {
+    "guid": "484671a2-c4cf-4de3-9dbf-4c0b2bd6b798",
+    "name": "Transport",
+    "budgetLimit": 1000,
+    "canDelete": false
+  },
+  {
+    "guid": "6f7ddc3f-247f-44a6-9dc4-2ecd755ee686",
+    "name": "Entertainment",
+    "budgetLimit": 1000,
+    "canDelete": false
   }
 ]

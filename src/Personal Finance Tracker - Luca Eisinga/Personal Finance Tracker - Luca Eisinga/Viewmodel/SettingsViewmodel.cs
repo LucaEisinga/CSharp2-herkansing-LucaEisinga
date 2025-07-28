@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace Personal_Finance_Tracker___Luca_Eisinga.Viewmodel
@@ -25,12 +26,13 @@ namespace Personal_Finance_Tracker___Luca_Eisinga.Viewmodel
         public ICommand exportCommand { get; }
         public ICommand importCommand { get; }
         public ICommand resetCommand { get; }
+        public ICommand saveSettingsCommand { get; }
 
-        public List<string> exportFormats { get; } = new() { "JSON", "CSV" };
+        public List<string> exportFormats { get; } = new() { "JSON"};
         public string selectedExportFormat { get; set; } = "JSON";
 
-        public List<Currency> Currencies { get; } = Enum.GetValues(typeof(Currency)).Cast<Currency>().ToList();
-        public Currency SelectedCurrency
+        public List<Currency> currencies { get; } = Enum.GetValues(typeof(Currency)).Cast<Currency>().ToList();
+        public Currency selectedCurrency
         {
             get => _settingsService.settings.currency;
             set
@@ -39,73 +41,112 @@ namespace Personal_Finance_Tracker___Luca_Eisinga.Viewmodel
                 _settingsService.saveSettings();
             }
         }
-        public bool isDarkTheme
-        {
-            get => _settingsService.settings.theme == Theme.DARK;
-            set
-            {
-                _settingsService.settings.theme = value ? Theme.DARK : Theme.LIGHT;
-                _settingsService.applyTheme();
-                _settingsService.saveSettings();
-            }
-        }
+        
 
         public SettingsViewmodel(INavigationService navigationService, SettingsService settingsService, DataService dataService)
         {
-            this._navigationService = navigationService;
-            this._settingsService = settingsService;
-            this._dataService = dataService;
+            _navigationService = navigationService;
+            _settingsService = settingsService;
+            _dataService = dataService;
 
-            this.openBudgetCommand = new RelayCommand(_ => _navigationService.navigateTo("Budget"));
-            this.openSettingsCommand = new RelayCommand(_ => _navigationService.navigateTo("Settings"));
-            this.openOverviewCommand = new RelayCommand(_ => _navigationService.navigateTo("Overview"));
-            this.exportCommand = new RelayCommand(_ => export());
-            this.importCommand = new RelayCommand(_ => import());
-            this.resetCommand = new RelayCommand(_ => resetAll());
+            openBudgetCommand = new RelayCommand(_ => _navigationService.navigateTo("Budget"));
+            openSettingsCommand = new RelayCommand(_ => _navigationService.navigateTo("Settings"));
+            openOverviewCommand = new RelayCommand(_ => _navigationService.navigateTo("Overview"));
+            exportCommand = new RelayCommand(_ => export());
+            importCommand = new RelayCommand(_ => import());
+            resetCommand = new RelayCommand(_ => resetAll());
         }
 
         private void export()
         {
-            var exportDir = "export";
-            Directory.CreateDirectory(exportDir);
-
-            var options = new JsonSerializerOptions
+            var saveFileDialog = new Microsoft.Win32.SaveFileDialog
             {
-                WriteIndented = true,
-                ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles
+                Filter = "JSON files (*.json)|*.json",
+                FileName = "export.json",
+                Title = "Save Exported Data"
             };
 
-            var transactions = _dataService.loadTransactions();
-            var categories = _dataService.loadCategories();
+            if (saveFileDialog.ShowDialog() == true)
+            {
+                var options = new JsonSerializerOptions
+                {
+                    WriteIndented = true,
+                    ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles
+                };
 
-            var transactionsJson = JsonSerializer.Serialize(transactions, options);
-            File.WriteAllText(Path.Combine(exportDir, "transactions.json"), transactionsJson);
+                var exportData = new
+                {
+                    transactions = _dataService.loadTransactions(),
+                    categories = _dataService.loadCategories()
+                };
 
-            var categoriesJson = JsonSerializer.Serialize(categories, options);
-            File.WriteAllText(Path.Combine(exportDir, "categories.json"), categoriesJson);
+                var exportJson = JsonSerializer.Serialize(exportData, options);
+                File.WriteAllText(saveFileDialog.FileName, exportJson);
+
+                MessageBox.Show("Data exported successfully.", "Export Complete", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+
 
         }
 
         private void import()
         {
-            // You can load JSON files from the "import" folder
-            if (File.Exists("import/transactions.json"))
+            var openFileDialog = new Microsoft.Win32.OpenFileDialog
             {
-                var tx = JsonSerializer.Deserialize<List<Transaction>>(File.ReadAllText("import/transactions.json"));
-                _dataService.saveTransactions(tx);
-            }
+                Filter = "JSON files (*.json)|*.json",
+                Title = "Select Data File to Import"
+            };
 
-            if (File.Exists("import/categories.json"))
+            if (openFileDialog.ShowDialog() == true)
             {
-                var cat = JsonSerializer.Deserialize<List<Category>>(File.ReadAllText("import/categories.json"));
-                _dataService.saveCategories(cat);
+                try
+                {
+                    string json = File.ReadAllText(openFileDialog.FileName);
+                    var importData = JsonSerializer.Deserialize<ImportWrapper>(json);
+
+                    if (importData != null)
+                    {
+                        _dataService.saveTransactions(importData.transactions ?? new List<Transaction>());
+                        _dataService.saveCategories(importData.categories ?? new List<Category>());
+
+                        MessageBox.Show("Data imported successfully.", "Import Complete", MessageBoxButton.OK, MessageBoxImage.Information);
+                        _navigationService.navigateTo("Overview");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Import failed: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
         }
 
         private void resetAll()
         {
-            File.Delete("transactions.json");
-            File.Delete("categories.json");
+            var result = MessageBox.Show(
+                "Are you sure you want to delete all data? This action cannot be undone.",
+                "Confirm Reset",
+                MessageBoxButton.YesNo,
+                MessageBoxImage.Warning
+            );
+
+            if (result == MessageBoxResult.Yes)
+            {
+                File.Delete("transactions.json");
+
+                var categories = _dataService.loadCategories().Where(c => !c.canDelete);
+
+                _dataService.saveCategories(categories.ToList());
+
+                _navigationService.navigateTo("Overview");
+            }
+
+            
+        }
+
+        private class ImportWrapper
+        {
+            public List<Transaction> transactions { get; set; }
+            public List<Category> categories { get; set; }
         }
     }
 }

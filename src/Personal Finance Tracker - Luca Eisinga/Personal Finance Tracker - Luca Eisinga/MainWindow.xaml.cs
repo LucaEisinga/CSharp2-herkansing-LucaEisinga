@@ -27,6 +27,21 @@ namespace Personal_Finance_Tracker___Luca_Eisinga.View
             var dataService = new Service.DataService();
             var navigationService = new Service.NavigationService(settingsService, dataService);
 
+            var data = dataService.loadCategories();
+
+            if (data.Count == 0)
+            {
+                var categories = new List<Model.Category>
+                {
+                    new Model.Category("Other", 1000, false),
+                    new Model.Category("Food", 1000, false),
+                    new Model.Category("Transport", 1000, false),
+                    new Model.Category("Entertainment", 1000, false)
+                };
+
+                dataService.saveCategories(categories);
+            }
+
             navigationService.navigateTo("Overview");
 
             DataContext = new { Navigation = navigationService };

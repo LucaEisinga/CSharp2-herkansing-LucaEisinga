@@ -109,7 +109,7 @@
                     HorizontalAlignment="Center" Width="150" Margin="0,10,10,10"
                     Command="{Binding deleteCategoryFormCommand}" />
 
-            <Button Content="Save Transaction" Grid.Row="6" Grid.Column="1" 
+            <Button Content="Save Category" Grid.Row="6" Grid.Column="1" 
                     HorizontalAlignment="Right" Width="150" Margin="10,10,0,10"
                     Command="{Binding saveCategoryFormCommand}" />   
         </Grid>

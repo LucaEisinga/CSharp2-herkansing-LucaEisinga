@@ -50,6 +50,19 @@ namespace Personal_Finance_Tracker___Luca_Eisinga.Service
             };
         }
 
+        private readonly Dictionary<string, decimal> _conversionRates = new()
+        {
+            { "en-US", 1.1m },  // USD
+            { "en-GB", 0.85m }, // GBP
+            { "nl-NL", 1m }     // EUR as base
+        };
+
+        public decimal getCurrencyMultiplier()
+        {
+            var culture = getCultureInfo();
+            return _conversionRates.TryGetValue(culture.Name, out var multiplier) ? multiplier : 1m;
+        }
+
         public void applyTheme()
         {
             string themePath = settings.theme switch

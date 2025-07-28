@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Personal_Finance_Tracker___Luca_Eisinga.Service;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,25 +9,23 @@ namespace Personal_Finance_Tracker___Luca_Eisinga.Model
 {
     internal class Budget
     {
-        public string categoryName { get; }
-        public decimal limit { get; }
-        public decimal spent { get; set; }
-        public decimal remaining { get { return limit - spent; } }
-        public double percentage
-        {
-            get
-            {
-                if (limit == 0) return 0;
-                return (double)(spent / limit) * 100;
-            }
-        }
-        public bool isOverLimit { get { return spent > limit; } }
+        private readonly SettingsService _settingsService;
 
-        public Budget(string categoryName, decimal limit, decimal spent)
+        public Category category { get; }
+        public string limit { get; }
+        public string spent { get; set; }
+        public decimal percentage { get; }
+        public bool isOverLimit { get; }
+
+        public Budget(Category category, decimal limit, decimal spent, SettingsService settingsService)
         {
-            this.categoryName = categoryName;
-            this.limit = limit;
-            this.spent = spent;
+            _settingsService = settingsService;
+
+            this.category = category;
+            this.limit = limit.ToString("C", _settingsService.getCultureInfo());
+            this.spent = spent.ToString("C", _settingsService.getCultureInfo());
+            this.percentage = limit == 0 ? 0 : (spent / limit) * 100;
+            this.isOverLimit = spent > limit;
         }
     }
 }

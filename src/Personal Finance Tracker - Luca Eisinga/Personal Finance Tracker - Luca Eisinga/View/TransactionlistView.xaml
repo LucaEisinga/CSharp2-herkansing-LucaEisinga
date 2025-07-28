@@ -117,10 +117,10 @@
                                         <!-- Edit button -->
                                     </Grid.ColumnDefinitions>
 
-                                    <TextBlock Text="{Binding category.name}" Grid.Column="0" FontWeight="Bold"/>
+                                    <TextBlock Text="{Binding categoryName}" Grid.Column="0" FontWeight="Bold"/>
                                     <TextBlock Text="{Binding transactionType}" Grid.Column="1" />
-                                    <TextBlock Text="{Binding amount, StringFormat=C}" Grid.Column="2" HorizontalAlignment="Right" />
-                                    <TextBlock Text="{Binding date, StringFormat='{}{0:dd MMM yyyy}'}" Grid.Column="3" HorizontalAlignment="Right"/>
+                                    <TextBlock Text="{Binding amountFormatted, StringFormat=C}" Grid.Column="2" HorizontalAlignment="Right" />
+                                    <TextBlock Text="{Binding dateFormatted, StringFormat='{}{0:dd MMM yyyy}'}" Grid.Column="3" HorizontalAlignment="Right"/>
 
                                     <!-- Hover description -->
                                     <TextBlock Grid.Column="4" Margin="10,0,0,0" FontSize="12" Foreground="Gray"

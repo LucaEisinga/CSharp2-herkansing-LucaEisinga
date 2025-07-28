@@ -54,11 +54,11 @@ namespace Personal_Finance_Tracker___Luca_Eisinga.Viewmodel
 
             totalIncome = data
                 .Where(t => t.transactionType == Enums.TransactionType.INCOME)
-                .Sum(t => t.amount);
+                .Sum(t => t.amount * _settingsService.getCurrencyMultiplier());
 
             totalExpenses = data
                 .Where(t => t.transactionType == Enums.TransactionType.EXPENSE)
-                .Sum(t => t.amount);
+                .Sum(t => t.amount * _settingsService.getCurrencyMultiplier());
 
             recentTransactions = new ObservableCollection<TransactionDisplay>(
                 data

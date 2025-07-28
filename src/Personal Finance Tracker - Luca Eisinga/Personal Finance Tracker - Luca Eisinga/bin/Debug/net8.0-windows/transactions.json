@@ -1,14 +1,1 @@
-[
-  {
-    "guid": "320b1e84-92fa-4b2f-a8d3-ffaa47bfb17d",
-    "date": "2025-07-24T15:40:26.9867209+02:00",
-    "amount": 100,
-    "description": "1 carrot",
-    "category": {
-      "guid": "68ee098a-2493-44f6-ac0a-50589e049cd7",
-      "name": "Groceries",
-      "budgetLimit": 1000
-    },
-    "transactionType": 0
-  }
-]
+[]
