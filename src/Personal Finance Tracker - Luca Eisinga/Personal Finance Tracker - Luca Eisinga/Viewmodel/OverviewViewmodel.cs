@@ -116,6 +116,7 @@ namespace Personal_Finance_Tracker___Luca_Eisinga.Viewmodel
                 new Axis
                 {
                     Labeler = value => value.ToString("C", _settingsService.getCultureInfo()),
+                    MinLimit = 0,
                 }
             };
         }

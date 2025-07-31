@@ -1,7 +1,7 @@
 [
   {
-    "guid": "67d394bf-09c9-442d-936d-3ccba73fefaa",
-    "date": "2025-07-28T20:08:14.6990735+02:00",
+    "guid": "c17659cb-209d-410f-bf81-2131dbe9a7c3",
+    "date": "2025-07-31T14:17:44.9639507+02:00",
     "amount": 100,
     "description": "Test",
     "category": {
@@ -13,16 +13,16 @@
     "transactionType": 0
   },
   {
-    "guid": "f126e847-7779-4941-8c70-1ee916ed5e27",
-    "date": "2025-07-28T21:46:58.6526648+02:00",
-    "amount": 1,
+    "guid": "020c7212-d9f7-49d7-8702-960a42301d92",
+    "date": "2025-07-31T14:26:36.8839132+02:00",
+    "amount": 300,
     "description": "Test",
     "category": {
-      "guid": "2f028f35-3acf-471c-a8d7-eed70fc9c173",
-      "name": "Other",
+      "guid": "1cdf80b2-62d4-4bb0-8040-6c5c76ee0061",
+      "name": "Food",
       "budgetLimit": 1000,
       "canDelete": false
     },
-    "transactionType": 0
+    "transactionType": 1
   }
 ]

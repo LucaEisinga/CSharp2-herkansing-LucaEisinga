@@ -64,9 +64,9 @@ namespace Personal_Finance_Tracker___Luca_Eisinga.Viewmodel
                 {
                     var spent = transactions
                         .Where(t => t.category.guid == cat.guid)
-                        .Sum(t => t.amount);
+                        .Sum(t => t.amount * _settingsService.getCurrencyMultiplier());
 
-                    return new Budget(cat, cat.budgetLimit, spent, _settingsService);
+                    return new Budget(cat, cat.budgetLimit * _settingsService.getCurrencyMultiplier(), spent, _settingsService);
                 })
                 .ToList();
 

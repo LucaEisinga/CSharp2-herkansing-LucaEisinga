@@ -16,5 +16,5 @@ D:\School\C#2\CSharp2-herkansing-LucaEisinga\src\Personal Finance Tracker - Luca
 208637890182
 MainWindow.xaml;Themes\DarkTheme.xaml;Themes\LightTheme.xaml;View\BudgetView.xaml;View\CategoryFormView.xaml;View\OverviewView.xaml;View\SettingsView.xaml;View\TransactionFormView.xaml;View\TransactionlistView.xaml;
 
-True
+False
 
